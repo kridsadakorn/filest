@@ -1,0 +1,3 @@
+import(rARPACK,doMC)
+#exportPattern("^[[:alpha:]]+")
+export(filestsim,demo.filestsim)

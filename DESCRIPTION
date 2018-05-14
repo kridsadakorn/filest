@@ -1,0 +1,10 @@
+Package: FilestSim
+Type: Package
+Title: Fine-level Structure simulator (FilestSim)
+Version: 0.36.0
+Date: 2017-07-21
+Author: Kridsadakorn Chaichoompu <kridsadakorn.chaichoompu@ulg.ac.be>
+Maintainer: Kridsadakorn Chaichoompu <kridsadakorn.chaichoompu@ulg.ac.be>
+Depends: rARPACK,doMC
+Description: The SNP simulation package supporting controlable generation for definign a genetic distance from large-scale to fine-scale population structue.
+License: GPL 3
