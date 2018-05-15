@@ -2,3 +2,15 @@
 ^\.Rproj\.user$
 ^packrat/
 ^\.Rprofile$
+cran-comments.md
+README.Rmd
+README.pdf
+README.html
+NEWS.Rmd
+NEWS.pdf
+NEWS.html
+TODO
+.travis.yml
+^\.travis\.yml$
+.gitlab-ci.yml
+packages_*

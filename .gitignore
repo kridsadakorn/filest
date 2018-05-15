@@ -1,2 +1,12 @@
-
 .Rproj.user
+.Rhistory
+.RData
+.DS_Store
+*/.DS_Store
+.Rprofile
+.Rbuildignore
+README.pdf
+README.html
+NEWS.pdf
+NEWS.html
+TODO.md
