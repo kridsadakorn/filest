@@ -375,7 +375,7 @@ get.para = function(param){
 }
 
 #=================== Main Code =============================
-filestsim <- function(setting, out, thread = 1){
+filest <- function(setting, out, thread = 1){
   #library(doMC)
   #To run this script
   #$ Rscript [sript].r --setting [setting file] --outdir [output directory] --thread [number of thread]
@@ -725,7 +725,7 @@ filestsim <- function(setting, out, thread = 1){
   }
 }
 
-demo.filestsim <- function(){
+demo.filest <- function(){
   txt = "--setting=example1\n"
   txt = paste0(txt,"--population=500,500\n")
   txt = paste0(txt,"--fst=0.005,0.005\n")
@@ -739,13 +739,13 @@ demo.filestsim <- function(){
   txt = paste0(txt,"--missing=0\n")
   txt = paste0(txt,"--fulloutput=TRUE\n")
 
-  settingfile = file.path(getwd(),"example1.txt")
+  outdir = tempdir()
+  settingfile = file.path(outdir,"example1.txt")
   cat(paste0("Creating a setting file ... ",settingfile,"\n"))
   fo = file(settingfile,"w")
   for (i in txt){ write(i,fo)}
   close(fo)
 
-  outdir = getwd()
   cat(paste0("Generating the simulated data  to  ... ",outdir,"\n"))
   filestsim(setting = settingfile, out = outdir, thread = 1)
 
