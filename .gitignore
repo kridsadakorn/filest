@@ -5,6 +5,8 @@
 */.DS_Store
 .Rprofile
 .Rbuildignore
+packrat/lib*/
+packrat/src/
 README.pdf
 README.html
 NEWS.pdf
