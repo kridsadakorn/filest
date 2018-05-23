@@ -1,46 +1,121 @@
 
-#Section of interal functions
+
+#' (Internal) Calculate the first margin for random numbers, internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#' @param fst A number to specify Fst
+#'
+#' @return The first margin for random numbers
 
 cal.margin1 = function(prob,fst){
   ret = prob*(1-fst)/fst
   return(ret)
 }
 
+#' (Internal) Calculate the second margin for random numbers, internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#' @param fst A number to specify Fst
+#'
+#' @return The second margin for random numbers
+
 cal.margin2 = function(prob,fst){
   ret = (1-prob)*(1-fst)/fst
   return(ret)
 }
+
+#' (Internal) Get random number based on beta distribution, internally used for
+#' parallelization
+#'
+#' @param mar1 A number to specify the first margin for random function of beta
+#' distribution.
+#' @param mar2 A number to specify the second margin for random function of beta
+#' distribution.
+#'
+#' @return A random number based on beta distribution
 
 get.random.beta = function(mar1,mar2){
   ret = rbeta(1, mar1, mar2, ncp = 0)
   return(ret)
 }
 
+#' (Internal) Calculate probability for wild-type allele, internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#'
+#' @return A probability of wild-type allele
+
 cal.prob.AA = function(prob){
   ret = (1-prob)^2
   return(ret)
 }
+
+#' (Internal) Calculate probability for heterozygous allele, internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#' @param riskratio A number to specify risk ratio for cases
+#'
+#' @return A probability of heterozygous allele
 
 cal.prob.AB = function(prob,riskratio=1.0){
   ret = 2*prob*(1-prob)*riskratio
   return(ret)
 }
 
+#' (Internal) Calculate probability for mutant-type allele, internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#' @param riskratio A number to specify risk ratio for cases
+#'
+#' @return A probability of mutant-type allele
+
 cal.prob.BB = function(prob,riskratio=1.0){
   ret = prob^2 * riskratio^2
   return(ret)
 }
+
+#' (Internal) Sample SNP according to given probabilities, internally used for
+#' parallelization
+#'
+#' @param p.AA A number to specify probability of wild-type allele
+#' @param p.AB A number to specify probability of heterozygous allele
+#' @param p.BB A number to specify probability of mutant-type allele
+#' @param no.ind A number to specify the amount of individuals to be generated
+#'
+#' @return A simulated SNP in additive coding
 
 do.sample.SNP = function(p.AA,p.AB,p.BB,no.ind){
   ret = sample(c(0,1,2),no.ind, prob=c(p.AA,p.AB,p.BB), replace=TRUE)
   return(ret)
 }
 
+#' (Internal) Create categorical data, internally used for
+#' parallelization
+#'
+#' @param marker A string to specify a marker
+#' @param name A string to specify a name of marker
+#'
+#' @return A categorical value
+
 do.create.cate = function(marker,name){
   ret = paste(name,marker,sep="_")
   return(ret)
 }
 
+
+#' (Internal) Create outliers,internally used for
+#' parallelization
+#'
+#' @param X An input matrix containing SNPs in additive coding
+#' @param population A vector of labels for all individuals
+#' @param outlier A number to specify the amount of outliers to be generated
+#'
+#' @return The modified matrix with outliers
 
 create.outlier = function(X,population,outlier){
   SVD=svd(X)
@@ -75,6 +150,14 @@ create.outlier = function(X,population,outlier){
   return(A)
 }
 
+#' (Internal) Calculate probabilities for categorical data, internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#' @param max.category A number to specify the maximum number of categorical groups
+#'
+#' @return Probability for categorical data
+
 cal.prob.categorical.data = function(prob,max.category){
 
   pset = runif(max.category-1,min=0,max=1)
@@ -84,22 +167,31 @@ cal.prob.categorical.data = function(prob,max.category){
 
   pset = c(prob,sort(pset))
 
-  #   rep.idx = sample(1:max.category,1)
-  #   if (rep.idx == max.category){
-  #     pset = c(pset,prob)
-  #   }else if (rep.idx == 1){
-  #     pset = c(prob,pset)
-  #   }else{
-  #     pset = c(pset[1:(rep.idx-1)],prob,pset[rep.idx:length(pset)])
-  #   }
-
   return(pset)
 }
+
+#' (Internal) Sample categorical data,internally used for
+#' parallelization
+#'
+#' @param prob A number to specify probability
+#' @param max.category A number to specify the maximum number of categorical groups
+#' @param no.ind A number to specify the amount of individuals to be generated
+#'
+#' @return A simulated data in categorical mode
 
 do.sample.categorical.data = function(prob,max.category,no.ind){
   ret = sample(1:max.category,no.ind, prob=prob, replace=TRUE)
   return(ret)
 }
+
+#' (Internal) Generate categorical data, internally used for
+#' parallelization
+#'
+#' @param pop A number to specify probability
+#' @param fst A number to specify Fst
+#' @param no.marker A number to specify the amount of markers to be generated
+#'
+#' @return A marrix of categorical data
 
 generate.categorical.data =function(pop,fst,no.marker){
   ret = NULL
@@ -119,6 +211,16 @@ generate.categorical.data =function(pop,fst,no.marker){
   }
   return(ret)
 }
+
+#' (Internal) Generate SNPs, internally used for
+#' parallelization
+#'
+#' @param pop A number to specify the amount of populations
+#' @param fst A number to specify Fst (representing genetic distance)
+#' @param no.snp A number to specify the amount of SNPs
+#' @param riskratio A number to specify risk ratio for cases
+#'
+#' @return Simulated SNPs
 
 generate.snp =function(pop,fst,no.snp,riskratio=1.0){
   ret = NULL
@@ -148,6 +250,14 @@ generate.snp =function(pop,fst,no.snp,riskratio=1.0){
 }
 
 
+#' (Internal) Generate labels, internally used for
+#' parallelization
+#'
+#' @param pop A number to specify the amount of populations
+#' @param outlier A number to specify the amount of outliers
+#'
+#' @return A vector of population labels
+
 generate.label = function(pop,outlier){
   ret = NULL
   if ((length(pop)<=0) || (sum(pop<0)!=0)){
@@ -169,6 +279,15 @@ generate.label = function(pop,outlier){
   return(ret)
 }
 
+
+#' (Internal) Generate PC plots labels, internally used for
+#' parallelization
+#'
+#' @param file.name A string to specify the output file name
+#' @param PC A matrix of principal components (PC)
+#' @param label A vector of string to specify population labels
+#'
+#' @return NULL
 
 save.PC.plot = function(file.name,PC,label){
   if (length(label)<=0){
@@ -259,7 +378,17 @@ save.PC.plot = function(file.name,PC,label){
 
 
   dev.off()
+
+  invisible(NULL)
 }
+
+#' (Internal) Combind two matrices by row for big data, internally used for
+#' parallelization
+#'
+#' @param a The first matrix
+#' @param b The second matrix
+#'
+#' @return The combined matrix by row
 
 rbind.matrix <- function(a,b){
   sizeA=dim(a)
@@ -283,6 +412,14 @@ rbind.matrix <- function(a,b){
   }
 }
 
+#' (Internal) Combind two matrices by column for big data, internally used for
+#' parallelization
+#'
+#' @param a The first matrix
+#' @param b The second matrix
+#'
+#' @return The combined matrix by column
+
 cbind.matrix <- function(a,b){
   sizeA=dim(a)
   sizeB=dim(b)
@@ -304,6 +441,12 @@ cbind.matrix <- function(a,b){
     return(ret)
   }
 }
+
+#' (Internal) Get all parameters
+#'
+#' @param param A string of parameters
+#'
+#' @return A list of parameters
 
 get.para = function(param){
   name=NA
@@ -375,6 +518,21 @@ get.para = function(param){
 }
 
 #=================== Main Code =============================
+#' Simulate data for multiple populations
+#'
+#' The output files are saved to the specified directory according to \code{out}.
+#'
+#' @param setting An absolute path to a setting file
+#' @param out An absolute path for output files
+#' @param thread A number to specify a maximum thread to be run in parallel
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#'
+#' #See the examples from
+#' demo.filest()
 filest <- function(setting, out, thread = 1){
   #library(doMC)
   #To run this script
@@ -723,8 +881,22 @@ filest <- function(setting, out, thread = 1){
       cat(paste0("Done - ",format(Sys.time()-start.time),"\n"))
     }
   }
+
+  invisible(NULL)
 }
 
+#' Demonstration the filest function
+#'
+#' This function generates the setting file and demonstrate how to use \code{\link{filest}}.
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#'
+#' #To run this function, just simply call demo.filest()
+#' demo.filest()
+#'
 demo.filest <- function(){
   txt = "--setting=example1\n"
   txt = paste0(txt,"--population=500,500\n")
@@ -749,4 +921,5 @@ demo.filest <- function(){
   cat(paste0("Generating the simulated data  to  ... ",outdir,"\n"))
   filestsim(setting = settingfile, out = outdir, thread = 1)
 
+  invisible(NULL)
 }
