@@ -6,6 +6,9 @@
 \usage{
 demo.filest()
 }
+\value{
+The output directory
+}
 \description{
 This function generates the setting file and demonstrate how to use \code{\link{filest}}.
 }

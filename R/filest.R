@@ -35,6 +35,8 @@ cal.margin2 = function(prob,fst){
 #' distribution.
 #'
 #' @return A random number based on beta distribution
+#'
+#' @importFrom stats rbeta
 
 get.random.beta = function(mar1,mar2){
   ret = rbeta(1, mar1, mar2, ncp = 0)
@@ -114,7 +116,8 @@ do.create.cate = function(marker,name){
 #' @param X An input matrix containing SNPs in additive coding
 #' @param population A vector of labels for all individuals
 #' @param outlier A number to specify the amount of outliers to be generated
-#'
+#' @import rARPACK
+#' @importFrom stats runif
 #' @return The modified matrix with outliers
 
 create.outlier = function(X,population,outlier){
@@ -157,6 +160,8 @@ create.outlier = function(X,population,outlier){
 #' @param max.category A number to specify the maximum number of categorical groups
 #'
 #' @return Probability for categorical data
+#'
+#' @importFrom stats runif
 
 cal.prob.categorical.data = function(prob,max.category){
 
@@ -192,12 +197,14 @@ do.sample.categorical.data = function(prob,max.category,no.ind){
 #' @param no.marker A number to specify the amount of markers to be generated
 #'
 #' @return A marrix of categorical data
+#'
+#' @importFrom stats runif
 
 generate.categorical.data =function(pop,fst,no.marker){
   ret = NULL
   if ((length(pop) !=  length(fst)) || (length(pop)<=0) || (length(fst)<=0) || (sum(pop<0)!=0) || (sum(fst<0)!=0) || no.marker<0){
     cat("Incorrect usage of generate.categorical.data()\n\te.g. generate.categorical.data(pop=c(50,50),fst=c(0.01,0.01),no.marker=100)\n")
-    return(raw.data)
+    return(ret)
   }
   p = runif(no.marker, min = 0.1, max = 0.9)
 
@@ -221,12 +228,14 @@ generate.categorical.data =function(pop,fst,no.marker){
 #' @param riskratio A number to specify risk ratio for cases
 #'
 #' @return Simulated SNPs
+#'
+#' @importFrom stats runif
 
 generate.snp =function(pop,fst,no.snp,riskratio=1.0){
   ret = NULL
   if ((length(pop) !=  length(fst)) || (length(pop)<=0) || (length(fst)<=0) || (sum(pop<0)!=0) || (sum(fst<0)!=0) || no.snp<0){
     cat("Incorrect usage of generate.snp()\n\te.g. generate.snp(pop=c(50,50),fst=c(0.01,0.01),no.snp=1000)\n")
-    return(raw.data)
+    return(ret)
   }
   p = runif(no.snp, min = 0.1, max = 0.9)
 
@@ -280,107 +289,6 @@ generate.label = function(pop,outlier){
 }
 
 
-#' (Internal) Generate PC plots labels, internally used for
-#' parallelization
-#'
-#' @param file.name A string to specify the output file name
-#' @param PC A matrix of principal components (PC)
-#' @param label A vector of string to specify population labels
-#'
-#' @return NULL
-
-save.PC.plot = function(file.name,PC,label){
-  if (length(label)<=0){
-    cat("Incorrect usage of save.PC.plot()\n\te.g. save.PC.plot(file.name='output.pdf',PC=matrix(runif(8),nrow=4),label=as.factor(1:4))\n")
-    return(raw.data)
-  }
-
-  map_color = c("red",rgb(0,68,27,max=255),"blue",rgb(231,41,138,max=255),"darkorange","black")
-  map_color = c(map_color,rgb(102,37,6,max=255),rgb(63,0,125,max=255),"green")
-  map_color = c(map_color,"cyan",rgb(250,159,181,max=255),"yellow","darkgrey")
-  map_color = c(map_color,rgb(116,196,118,max=255))
-
-  map_pch = c(1,0,2:18,35:38,60:64,94,126)
-  map_pch = c(map_pch,33:34,42,45,47,40,91,123,41,92,93,125)
-  map_pch = c(map_pch,49:57,97:107,109:110,112:119,121:122)
-  map_pch = c(map_pch,65:78,81:82,84:85,89)
-
-  map_pattern = c()
-  for (i in 1:length(map_pch))
-    for (j in 1:length(map_color)){
-      tmp = c(i,j)
-      map_pattern = c(map_pattern,list(tmp))
-    }
-
-  if (class(label) == "data.frame"){
-    label = label[,1]
-    u.label = sort(unique(label))
-  }else{
-    u.label = sort(unique(label))
-  }
-
-  #png(file=file.name,width=800,height=800)
-  pdf(file=file.name)
-
-  par(mfrow=c(2,2))
-  X = PC
-  #Top-Left
-  par(mar=c(4, 1, 1, 2))
-  plot(c(min(X[,1]),max(X[,1])),c(min(X[,2]),max(X[,2])),type="n",xlab="",ylab="",main="",axes=FALSE)
-  axis(side=1, labels=TRUE, line=2)
-  axis(side=4, labels=TRUE, line=2)
-  mtext("PC1", side=1, line=0.5)
-  mtext("PC2", side=4, line=0.5)
-  set_legend = NULL
-  set_pch = NULL
-  set_col = NULL
-  for (k in 1:length(u.label)){
-    spch = map_pch[map_pattern[[k]][1]]
-    scolor = map_color[map_pattern[[k]][2]]
-    points(X[label %in% u.label[k],1],X[label %in% u.label[k],2],col=scolor,pch=spch)
-    set_pch = c(set_pch,spch)
-    set_col = c(set_col, scolor)
-  }
-
-  #Top-Right
-  par(mar=c(4, 3.5, 1, 1))
-  plot(c(min(X[,3]),max(X[,3])),c(min(X[,2]),max(X[,2])),type="n",xlab="",ylab="",main="",axes=FALSE)
-  axis(side=1, labels=TRUE, line=2)
-  mtext("PC3", side=1, line=0.5)
-  for (k in 1:length(u.label)){
-    spch = map_pch[map_pattern[[k]][1]]
-    scolor = map_color[map_pattern[[k]][2]]
-    points(X[label %in% u.label[k],3],X[label %in% u.label[k],2],col=scolor,pch=spch)
-  }
-
-  #Bottom-Left
-  par(mar=c(1, 1, 0.5, 2))
-  plot(c(min(X[,1]),max(X[,1])),c(min(X[,3]),max(X[,3])),type="n",xlab="",ylab="",main="",axes=FALSE)
-  axis(side=4, labels=TRUE, line=2)
-  mtext("PC3", side=4, line=0.5)
-  for (k in 1:length(u.label)){
-    spch = map_pch[map_pattern[[k]][1]]
-    scolor = map_color[map_pattern[[k]][2]]
-    points(X[label %in% u.label[k],1],X[label %in% u.label[k],3],col=scolor,pch=spch)
-  }
-
-  #Bottom-Right
-  plot(1, type = "n", axes=FALSE, xlab="", ylab="")
-  if (length(u.label)>54){
-    legend('right', inset=0, legend=u.label, pch=set_pch, col=set_col, ncol=4)
-  }else if (length(u.label)>36){
-    legend('right', inset=0, legend=u.label, pch=set_pch, col=set_col, ncol=3)
-  }else if (length(u.label)>18){
-    legend('right', inset=0, legend=u.label, pch=set_pch, col=set_col, ncol=2)
-  }else{
-    legend('center', inset=0, legend=u.label, pch=set_pch, col=set_col, ncol=1)
-  }
-
-
-  dev.off()
-
-  invisible(NULL)
-}
 
 #' (Internal) Combind two matrices by row for big data, internally used for
 #' parallelization
@@ -517,7 +425,6 @@ get.para = function(param){
   return(ret)
 }
 
-#=================== Main Code =============================
 #' Simulate data for multiple populations
 #'
 #' The output files are saved to the specified directory according to \code{out}.
@@ -528,6 +435,12 @@ get.para = function(param){
 #'
 #' @return NULL
 #' @export
+#'
+#' @import doMC
+#' @import KRIS
+#' @import foreach
+#' @importFrom utils read.table write.table write.csv
+#' @importFrom grDevices dev.off pdf
 #'
 #' @examples
 #'
@@ -560,6 +473,7 @@ filest <- function(setting, out, thread = 1){
   param.all = read.table(fname.input,header=F,sep="=")
   settings = which(param.all=='--setting')
 
+  idx.rep <- NULL
   #foreach (set.no = 1:length(settings))  %dopar% {
   for (set.no in 1:length(settings)) {
     if (set.no != length(settings)){
@@ -821,16 +735,18 @@ filest <- function(setting, out, thread = 1){
 
       if (param$pc == "TRUE"){
         cat(paste0("Generating PC scores #",set.no," - rep #",idx.rep,"\n"))
-        PC = cal.PC.linear(object$snp,PCscore=TRUE,no.pc=10,data.type="snp")$PC
+        PC = cal.pc.linear(object$snp,PCscore=TRUE,no.pc=10,data.type="snp")$PC
 
         filename = paste0(out.filename.prefix,"_PC10.txt")
         write.table(cbind(iid,iid,PC),file=filename,sep=" ",col.names=F, row.names=F, quote=F)
 
         filename = paste0(out.filename.prefix,"_PC.pdf")
-        save.PC.plot(file.name=filename,PC=PC,label=plot.label)
+        pdf(filename)
+        plot3views(PC,plot.label)
+        dev.off()
 
         cat(paste0("Generating EigenVector  #",set.no," - rep #",idx.rep,"\n"))
-        PC = cal.PC.linear(object$snp,PCscore=FALSE,no.pc=10,data.type="snp")$PC
+        PC = cal.pc.linear(object$snp,PCscore=FALSE,no.pc=10,data.type="snp")$PC
 
         filename = paste0(out.filename.prefix,"_eigenvector10.txt")
         write.table(cbind(iid,iid,PC),file=filename,sep=" ",col.names=F, row.names=F, quote=F)
@@ -838,7 +754,7 @@ filest <- function(setting, out, thread = 1){
         PC.projected = NULL
         if (sum(no.case) > 0){
           cat(paste0("Generating projected PCs  #",set.no," - rep #",idx.rep,"\n"))
-          PC.projected = cal.PC.projection(object$snp, iid, status, label, no.pc = 10)
+          PC.projected = cal.pc.projection(object$snp, iid, status, label, no.pc = 10)
 
           filename = paste0(out.filename.prefix,"_PC.projected.txt")
           tmp.pc.projected = cbind(PC.projected$id,PC.projected$id,PC.projected$label,PC.projected$status,PC.projected$PC)
@@ -849,8 +765,10 @@ filest <- function(setting, out, thread = 1){
           write.table(PC.projected.sorted,file=filename,sep=" ",col.names=F, row.names=F, quote=F)
 
           filename = paste0(out.filename.prefix,"_PC.projected.pdf")
+          pdf(filename)
           plot.label = paste0(PC.projected$label,"_",PC.projected$status)
-          save.PC.plot(file.name=filename,PC=PC.projected$PC,label=plot.label)
+          plot3views(PC.projected$PC,plot.label)
+          dev.off()
         }
 
 
@@ -889,12 +807,12 @@ filest <- function(setting, out, thread = 1){
 #'
 #' This function generates the setting file and demonstrate how to use \code{\link{filest}}.
 #'
-#' @return NULL
+#' @return The output directory
 #' @export
 #'
 #' @examples
 #'
-#' #To run this function, just simply call demo.filest()
+#' #To run this function, simply call demo.filest()
 #' demo.filest()
 #'
 demo.filest <- function(){
@@ -911,7 +829,8 @@ demo.filest <- function(){
   txt = paste0(txt,"--missing=0\n")
   txt = paste0(txt,"--fulloutput=TRUE\n")
 
-  outdir = tempdir()
+  outdir = file.path(tempdir())
+  dir.create(outdir)
   settingfile = file.path(outdir,"example1.txt")
   cat(paste0("Creating a setting file ... ",settingfile,"\n"))
   fo = file(settingfile,"w")
@@ -919,7 +838,7 @@ demo.filest <- function(){
   close(fo)
 
   cat(paste0("Generating the simulated data  to  ... ",outdir,"\n"))
-  filestsim(setting = settingfile, out = outdir, thread = 1)
+  filest(setting = settingfile, out = outdir, thread = 1)
 
-  invisible(NULL)
+ return(outdir)
 }

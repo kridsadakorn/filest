@@ -1,7 +1,7 @@
 Package: FILEST
 Type: Package
 Title: Fine-Level Structure Simulator
-Version: 0.3.6.0
+Version: 0.3.7.0
 Authors@R: c(person(given = "Kridsadakorn", family = "Chaichoompu", email = "kridsadakorn@biostatgen.org", role = c("aut", "cre")),person(given = "Kristel", family = 'Van Steen', role = "aut"),person(given = "Fentaw", family = "Abegaz", role = "aut"))
 Description: FILEST is a population genetic simulator. The simulator is able to generate synthetic datasets for single-nucleotide polymorphisms (SNP) for multiple populations. The genetic distances among populations can be set according to the Fixation Index (Fst). This tool is able to simulate outlying individuals and missing SNPs can be specified. For Genome-wide association study (GWAS), disease status can be set in desired level according risk ratio.
 Depends: R (>= 3.2.4.0)
@@ -18,4 +18,4 @@ Author: Kridsadakorn Chaichoompu [aut, cre],
   Kristel Van Steen [aut],
   Fentaw Abegaz [aut]
 Maintainer: Kridsadakorn Chaichoompu <kridsadakorn@biostatgen.org>
-Built: R 3.4.3; ; 2018-05-23 14:46:01 UTC; unix
+Built: R 3.4.3; ; 2018-05-23 15:21:57 UTC; unix

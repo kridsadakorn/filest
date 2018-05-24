@@ -2,4 +2,6 @@
 
 export(demo.filest)
 export(filest)
+import(KRIS)
+import(doMC)
 import(rARPACK)

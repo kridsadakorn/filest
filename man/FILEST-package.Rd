@@ -14,18 +14,13 @@ SNPs can be specified. For Genome-wide association study (GWAS), disease
 status can be set in desired level according risk ratio.
 }
 \details{
-The R package \pkg{FILEST} requires the package \pkg{KRIS}.
+The R package \pkg{FILEST} requires the package \pkg{KRIS}, \pkg{doMC},
+\pkg{foreach}, and \pkg{rARPACK}.
 
 Here is the list of functions in the R package \pkg{FILEST}:
 \itemize{
 \item \code{\link{filest}}
 \item \code{\link{demo.filest}}
-}
-
-Moreover, here is the list of example datasets in the R package \pkg{KRIS}:
-\itemize{
-\item \code{\link{simsnp}}
-\item \code{\link{sample_labels}}
 }
 }
 \seealso{
