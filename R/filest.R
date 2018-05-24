@@ -830,7 +830,7 @@ demo.filest <- function(){
   txt = paste0(txt,"--fulloutput=TRUE\n")
 
   outdir = file.path(tempdir())
-  dir.create(outdir)
+
   settingfile = file.path(outdir,"example1.txt")
   cat(paste0("Creating a setting file ... ",settingfile,"\n"))
   fo = file(settingfile,"w")

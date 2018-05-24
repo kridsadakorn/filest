@@ -18,7 +18,11 @@ output:
 
 ## Updates
 
-* Add manual files
+* Add manual files for all functions
+
+## Changes
+
+* Removed save.PC.plot() and replaced with KRIS::plot3views
 
 # FILEST 0.3.6.0
 
