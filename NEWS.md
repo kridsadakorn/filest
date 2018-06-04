@@ -13,6 +13,12 @@ output:
 
 
 
+# FILEST 1.0.1
+
+## Updates
+
+* FILEST 1.0.1 is released under GPL-2|GPL-3
+
 # FILEST 1.0.0
 
 ## NOTES
