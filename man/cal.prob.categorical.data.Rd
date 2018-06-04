@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{cal.prob.categorical.data}
 \alias{cal.prob.categorical.data}
-\title{(Internal) Calculate probabilities for categorical data, internally used for
+\title{(Internal function) Calculate probabilities for categorical data, internally used for
 parallelization}
 \usage{
 cal.prob.categorical.data(prob, max.category)
@@ -16,6 +16,6 @@ cal.prob.categorical.data(prob, max.category)
 Probability for categorical data
 }
 \description{
-(Internal) Calculate probabilities for categorical data, internally used for
+(Internal function) Calculate probabilities for categorical data, internally used for
 parallelization
 }

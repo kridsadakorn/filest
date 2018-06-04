@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{do.sample.categorical.data}
 \alias{do.sample.categorical.data}
-\title{(Internal) Sample categorical data,internally used for
+\title{(Internal function) Sample categorical data,internally used for
 parallelization}
 \usage{
 do.sample.categorical.data(prob, max.category, no.ind)
@@ -18,6 +18,6 @@ do.sample.categorical.data(prob, max.category, no.ind)
 A simulated data in categorical mode
 }
 \description{
-(Internal) Sample categorical data,internally used for
+(Internal function) Sample categorical data,internally used for
 parallelization
 }

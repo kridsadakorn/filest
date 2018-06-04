@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{generate.categorical.data}
 \alias{generate.categorical.data}
-\title{(Internal) Generate categorical data, internally used for
+\title{(Internal function) Generate categorical data, internally used for
 parallelization}
 \usage{
 generate.categorical.data(pop, fst, no.marker)
@@ -18,6 +18,6 @@ generate.categorical.data(pop, fst, no.marker)
 A marrix of categorical data
 }
 \description{
-(Internal) Generate categorical data, internally used for
+(Internal function) Generate categorical data, internally used for
 parallelization
 }

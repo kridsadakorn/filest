@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{cal.prob.BB}
 \alias{cal.prob.BB}
-\title{(Internal) Calculate probability for mutant-type allele, internally used for
+\title{(Internal function) Calculate probability for mutant-type allele, internally used for
 parallelization}
 \usage{
 cal.prob.BB(prob, riskratio = 1)
@@ -16,6 +16,6 @@ cal.prob.BB(prob, riskratio = 1)
 A probability of mutant-type allele
 }
 \description{
-(Internal) Calculate probability for mutant-type allele, internally used for
+(Internal function) Calculate probability for mutant-type allele, internally used for
 parallelization
 }

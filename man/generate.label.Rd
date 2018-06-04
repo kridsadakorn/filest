@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{generate.label}
 \alias{generate.label}
-\title{(Internal) Generate labels, internally used for
+\title{(Internal function) Generate labels, internally used for
 parallelization}
 \usage{
 generate.label(pop, outlier)
@@ -16,6 +16,6 @@ generate.label(pop, outlier)
 A vector of population labels
 }
 \description{
-(Internal) Generate labels, internally used for
+(Internal function) Generate labels, internally used for
 parallelization
 }

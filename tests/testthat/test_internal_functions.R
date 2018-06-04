@@ -217,26 +217,26 @@ test_that("Test generate.label",{
 
 
 
-context("Test rbind.matrix")
+context("Test rbind_bigmatrix")
 
-test_that("Test rbind.matrix",{
+test_that("Test rbind_bigmatrix",{
 
   X <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
   Y <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
-  res <- rbind.matrix(X,Y)
+  res <- rbind_bigmatrix(X,Y)
   expect_length(res,32)
 
 })
 
 
 
-context("Test cbind.matrix")
+context("Test cbind_bigmatrix")
 
-test_that("Test cbind.matrix",{
+test_that("Test cbind_bigmatrix",{
 
   X <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
   Y <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
-  res <- cbind.matrix(X,Y)
+  res <- cbind_bigmatrix(X,Y)
   expect_length(res,32)
 
 })

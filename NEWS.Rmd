@@ -1,7 +1,7 @@
 ---
 title: "NEWS"
 author: "Kridsadakorn Chaichoompu"
-date: "15/05/2018"
+date: "04/06/2018"
 output:
   html_document:
     keep_md: yes
@@ -16,17 +16,18 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# FILEST 0.3.7.0
+# FILEST 0.3.7
 
 ## Updates
 
-* Add manual files for all functions
+* Added all manual files for all functions
+* Added all unit tests
 
 ## Changes
 
 * Removed save.PC.plot() and replaced with KRIS::plot3views
 
-# FILEST 0.3.6.0
+# FILEST 0.3.6
 
 ## Initial project in GitLab
 

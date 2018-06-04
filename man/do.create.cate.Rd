@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{do.create.cate}
 \alias{do.create.cate}
-\title{(Internal) Create categorical data, internally used for
+\title{(Internal function) Create categorical data, internally used for
 parallelization}
 \usage{
 do.create.cate(marker, name)
@@ -16,6 +16,6 @@ do.create.cate(marker, name)
 A categorical value
 }
 \description{
-(Internal) Create categorical data, internally used for
+(Internal function) Create categorical data, internally used for
 parallelization
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{cal.margin2}
 \alias{cal.margin2}
-\title{(Internal) Calculate the second margin for random numbers, internally used for
+\title{(Internal function) Calculate the second margin for random numbers, internally used for
 parallelization}
 \usage{
 cal.margin2(prob, fst)
@@ -16,6 +16,6 @@ cal.margin2(prob, fst)
 The second margin for random numbers
 }
 \description{
-(Internal) Calculate the second margin for random numbers, internally used for
+(Internal function) Calculate the second margin for random numbers, internally used for
 parallelization
 }

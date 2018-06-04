@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{generate.snp}
 \alias{generate.snp}
-\title{(Internal) Generate SNPs, internally used for
+\title{(Internal function) Generate SNPs, internally used for
 parallelization}
 \usage{
 generate.snp(pop, fst, no.snp, riskratio = 1)
@@ -20,6 +20,6 @@ generate.snp(pop, fst, no.snp, riskratio = 1)
 Simulated SNPs
 }
 \description{
-(Internal) Generate SNPs, internally used for
+(Internal function) Generate SNPs, internally used for
 parallelization
 }

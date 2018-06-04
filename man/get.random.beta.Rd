@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{get.random.beta}
 \alias{get.random.beta}
-\title{(Internal) Get random number based on beta distribution, internally used for
+\title{(Internal function) Get random number based on beta distribution, internally used for
 parallelization}
 \usage{
 get.random.beta(mar1, mar2)
@@ -18,6 +18,6 @@ distribution.}
 A random number based on beta distribution
 }
 \description{
-(Internal) Get random number based on beta distribution, internally used for
+(Internal function) Get random number based on beta distribution, internally used for
 parallelization
 }

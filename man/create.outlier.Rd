@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{create.outlier}
 \alias{create.outlier}
-\title{(Internal) Create outliers,internally used for
+\title{(Internal function) Create outliers,internally used for
 parallelization}
 \usage{
 create.outlier(X, population, outlier)
@@ -18,6 +18,6 @@ create.outlier(X, population, outlier)
 The modified matrix with outliers
 }
 \description{
-(Internal) Create outliers,internally used for
+(Internal function) Create outliers,internally used for
 parallelization
 }

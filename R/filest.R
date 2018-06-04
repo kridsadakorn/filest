@@ -1,6 +1,6 @@
 
 
-#' (Internal) Calculate the first margin for random numbers, internally used for
+#' (Internal function) Calculate the first margin for random numbers, internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -13,7 +13,7 @@ cal.margin1 = function(prob,fst){
   return(ret)
 }
 
-#' (Internal) Calculate the second margin for random numbers, internally used for
+#' (Internal function) Calculate the second margin for random numbers, internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -26,7 +26,7 @@ cal.margin2 = function(prob,fst){
   return(ret)
 }
 
-#' (Internal) Get random number based on beta distribution, internally used for
+#' (Internal function) Get random number based on beta distribution, internally used for
 #' parallelization
 #'
 #' @param mar1 A number to specify the first margin for random function of beta
@@ -43,7 +43,7 @@ get.random.beta = function(mar1,mar2){
   return(ret)
 }
 
-#' (Internal) Calculate probability for wild-type allele, internally used for
+#' (Internal function) Calculate probability for wild-type allele, internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -55,7 +55,7 @@ cal.prob.AA = function(prob){
   return(ret)
 }
 
-#' (Internal) Calculate probability for heterozygous allele, internally used for
+#' (Internal function) Calculate probability for heterozygous allele, internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -68,7 +68,7 @@ cal.prob.AB = function(prob,riskratio=1.0){
   return(ret)
 }
 
-#' (Internal) Calculate probability for mutant-type allele, internally used for
+#' (Internal function) Calculate probability for mutant-type allele, internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -81,7 +81,7 @@ cal.prob.BB = function(prob,riskratio=1.0){
   return(ret)
 }
 
-#' (Internal) Sample SNP according to given probabilities, internally used for
+#' (Internal function) Sample SNP according to given probabilities, internally used for
 #' parallelization
 #'
 #' @param p.AA A number to specify probability of wild-type allele
@@ -96,7 +96,7 @@ do.sample.SNP = function(p.AA,p.AB,p.BB,no.ind){
   return(ret)
 }
 
-#' (Internal) Create categorical data, internally used for
+#' (Internal function) Create categorical data, internally used for
 #' parallelization
 #'
 #' @param marker A string to specify a marker
@@ -110,7 +110,7 @@ do.create.cate = function(marker,name){
 }
 
 
-#' (Internal) Create outliers,internally used for
+#' (Internal function) Create outliers,internally used for
 #' parallelization
 #'
 #' @param X An input matrix containing SNPs in additive coding
@@ -153,7 +153,7 @@ create.outlier = function(X,population,outlier){
   return(A)
 }
 
-#' (Internal) Calculate probabilities for categorical data, internally used for
+#' (Internal function) Calculate probabilities for categorical data, internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -175,7 +175,7 @@ cal.prob.categorical.data = function(prob,max.category){
   return(pset)
 }
 
-#' (Internal) Sample categorical data,internally used for
+#' (Internal function) Sample categorical data,internally used for
 #' parallelization
 #'
 #' @param prob A number to specify probability
@@ -189,7 +189,7 @@ do.sample.categorical.data = function(prob,max.category,no.ind){
   return(ret)
 }
 
-#' (Internal) Generate categorical data, internally used for
+#' (Internal function) Generate categorical data, internally used for
 #' parallelization
 #'
 #' @param pop A number to specify probability
@@ -214,12 +214,12 @@ generate.categorical.data =function(pop,fst,no.marker){
     p.b = mapply(get.random.beta,mar1=mar1,mar2=mar2)
     p.all = mapply(cal.prob.categorical.data,prob=p.b,max.category=10)
     data.mat = apply(p.all,2,do.sample.categorical.data,max.category=10,no.ind=pop[i])
-    ret = rbind.matrix(ret,data.mat)
+    ret = rbind_bigmatrix(ret,data.mat)
   }
   return(ret)
 }
 
-#' (Internal) Generate SNPs, internally used for
+#' (Internal function) Generate SNPs, internally used for
 #' parallelization
 #'
 #' @param pop A number to specify the amount of populations
@@ -253,13 +253,13 @@ generate.snp =function(pop,fst,no.snp,riskratio=1.0){
     p.AB = mapply(cal.prob.AB,prob=p.b,riskratio=riskratio)
     p.BB = mapply(cal.prob.BB,prob=p.b,riskratio=riskratio)
     data.mat = mapply(do.sample.SNP,p.AA=p.AA,p.AB=p.AB,p.BB=p.BB,no.ind=pop[i]) #change here
-    ret = rbind.matrix(ret,data.mat)
+    ret = rbind_bigmatrix(ret,data.mat)
   }
   return(ret)
 }
 
 
-#' (Internal) Generate labels, internally used for
+#' (Internal function) Generate labels, internally used for
 #' parallelization
 #'
 #' @param pop A number to specify the amount of populations
@@ -290,15 +290,24 @@ generate.label = function(pop,outlier){
 
 
 
-#' (Internal) Combind two matrices by row for big data, internally used for
+#' Combind two matrices by row for big data, internally used for
 #' parallelization
 #'
 #' @param a The first matrix
 #' @param b The second matrix
 #'
 #' @return The combined matrix by row
+#'
+#' @export
+#' @seealso \code{\link{cbind_bigmatrix}}
+#'
+#' @examples
+#' X <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
+#' Y <- matrix(c(2,1,1,0,1,0,0,1,1,2,2,0,0,1,1,0),ncol=4)
+#' Z <- rbind_bigmatrix(X,Y)
+#' print(Z)
 
-rbind.matrix <- function(a,b){
+rbind_bigmatrix <- function(a,b){
   sizeA=dim(a)
   sizeB=dim(b)
 
@@ -320,15 +329,24 @@ rbind.matrix <- function(a,b){
   }
 }
 
-#' (Internal) Combind two matrices by column for big data, internally used for
+#' Combind two matrices by column for big data, internally used for
 #' parallelization
 #'
 #' @param a The first matrix
 #' @param b The second matrix
 #'
 #' @return The combined matrix by column
-
-cbind.matrix <- function(a,b){
+#'
+#' @export
+#' @seealso \code{\link{rbind_bigmatrix}}
+#'
+#' @examples
+#' X <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
+#' Y <- matrix(c(2,1,1,0,1,0,0,1,1,2,2,0,0,1,1,0),ncol=4)
+#' Z <- cbind_bigmatrix(X,Y)
+#' print(Z)
+#'
+cbind_bigmatrix <- function(a,b){
   sizeA=dim(a)
   sizeB=dim(b)
 
@@ -350,7 +368,7 @@ cbind.matrix <- function(a,b){
   }
 }
 
-#' (Internal) Get all parameters
+#' (Internal function) Get all parameters
 #'
 #' @param param A string of parameters
 #'
@@ -434,6 +452,35 @@ get.para = function(param){
 #' @param thread A number to specify a maximum thread to be run in parallel
 #'
 #' @return NULL
+#'
+#' @details This function takes the specific input file containing the settings
+#' for simulations. It allows multiple settings for several simulation within
+#' one file. The simulation-setting file must be a text file. The line started
+#' with "--" indicates the parameters for simulation, and the line started with
+#' "#" are comments. Empty lines are allowed in the setting file. The parameters
+#' in the setting file are listed below:
+#' \itemize{
+#' \item \code{--setting}	A name of setting
+#' \item \code{--population} A list that indicates the numbers of population
+#' separated by comma
+#' \item \code{--fst}	A list that indicates the Fst values separated by comma.
+#' Each Fst value represents a genetic distance of that particular population
+#' and the first population. The Fst values for the first population and the
+#' second population should be the same values, otherwise they will be summed up
+#' and devided by two.
+#' \item \code{--case} A list that indicates the ratio values of cases separated
+#' by comma
+#' \item \code{--outlier}	A list that indicates the logical values (0/1) whether
+#' that population are outliers, separated by comma
+#' \item \code{--marker} A number of SNPs
+#' \item \code{--replicate}	A number of replicates
+#' \item \code{--riskratio} A number of replicates
+#' \item \code{--no.case.snp}	A number of case SNPs
+#' \item \code{--pc} A logical value (TRUE/FALSE) whether PCs will be calculated.
+#' \item \code{--fulloutput} A logical value (TRUE/FALSE) whether all
+#' information will be exported.
+#' }
+#'
 #' @export
 #'
 #' @import doMC
@@ -813,7 +860,9 @@ filest <- function(setting, out, thread = 1){
 #' @examples
 #'
 #' #To run this function, simply call demo.filest()
+#' \donttest{
 #' demo.filest()
+#' }
 #'
 demo.filest <- function(){
   txt = "--setting=example1\n"

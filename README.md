@@ -1,7 +1,7 @@
 ---
 title: "README"
 author: "Kridsadakorn Chaichoompu"
-date: "15/05/2018"
+date: "04/06/2018"
 output:
   html_document:
     keep_md: yes
@@ -13,7 +13,7 @@ output:
 
 
 
-# R Package KRIS
+# R Package FILEST
 
 ## Summary
 

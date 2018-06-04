@@ -16,6 +16,35 @@ filest(setting, out, thread = 1)
 \description{
 The output files are saved to the specified directory according to \code{out}.
 }
+\details{
+This function takes the specific input file containing the settings
+for simulations. It allows multiple settings for several simulation within
+one file. The simulation-setting file must be a text file. The line started
+with "--" indicates the parameters for simulation, and the line started with
+"#" are comments. Empty lines are allowed in the setting file. The parameters
+in the setting file are listed below:
+\itemize{
+\item \code{--setting}	A name of setting
+\item \code{--population} A list that indicates the numbers of population
+separated by comma
+\item \code{--fst}	A list that indicates the Fst values separated by comma.
+Each Fst value represents a genetic distance of that particular population
+and the first population. The Fst values for the first population and the
+second population should be the same values, otherwise they will be summed up
+and devided by two.
+\item \code{--case} A list that indicates the ratio values of cases separated
+by comma
+\item \code{--outlier}	A list that indicates the logical values (0/1) whether
+that population are outliers, separated by comma
+\item \code{--marker} A number of SNPs
+\item \code{--replicate}	A number of replicates
+\item \code{--riskratio} A number of replicates
+\item \code{--no.case.snp}	A number of case SNPs
+\item \code{--pc} A logical value (TRUE/FALSE) whether PCs will be calculated.
+\item \code{--fulloutput} A logical value (TRUE/FALSE) whether all
+information will be exported.
+}
+}
 \examples{
 
 #See the examples from

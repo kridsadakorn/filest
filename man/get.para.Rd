@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{get.para}
 \alias{get.para}
-\title{(Internal) Get all parameters}
+\title{(Internal function) Get all parameters}
 \usage{
 get.para(param)
 }
@@ -13,5 +13,5 @@ get.para(param)
 A list of parameters
 }
 \description{
-(Internal) Get all parameters
+(Internal function) Get all parameters
 }

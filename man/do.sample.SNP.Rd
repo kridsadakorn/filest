@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{do.sample.SNP}
 \alias{do.sample.SNP}
-\title{(Internal) Sample SNP according to given probabilities, internally used for
+\title{(Internal function) Sample SNP according to given probabilities, internally used for
 parallelization}
 \usage{
 do.sample.SNP(p.AA, p.AB, p.BB, no.ind)
@@ -20,6 +20,6 @@ do.sample.SNP(p.AA, p.AB, p.BB, no.ind)
 A simulated SNP in additive coding
 }
 \description{
-(Internal) Sample SNP according to given probabilities, internally used for
+(Internal function) Sample SNP according to given probabilities, internally used for
 parallelization
 }

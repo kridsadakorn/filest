@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{cal.prob.AB}
 \alias{cal.prob.AB}
-\title{(Internal) Calculate probability for heterozygous allele, internally used for
+\title{(Internal function) Calculate probability for heterozygous allele, internally used for
 parallelization}
 \usage{
 cal.prob.AB(prob, riskratio = 1)
@@ -16,6 +16,6 @@ cal.prob.AB(prob, riskratio = 1)
 A probability of heterozygous allele
 }
 \description{
-(Internal) Calculate probability for heterozygous allele, internally used for
+(Internal function) Calculate probability for heterozygous allele, internally used for
 parallelization
 }

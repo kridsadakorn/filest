@@ -2,7 +2,7 @@
 % Please edit documentation in R/filest.R
 \name{cal.prob.AA}
 \alias{cal.prob.AA}
-\title{(Internal) Calculate probability for wild-type allele, internally used for
+\title{(Internal function) Calculate probability for wild-type allele, internally used for
 parallelization}
 \usage{
 cal.prob.AA(prob)
@@ -14,6 +14,6 @@ cal.prob.AA(prob)
 A probability of wild-type allele
 }
 \description{
-(Internal) Calculate probability for wild-type allele, internally used for
+(Internal function) Calculate probability for wild-type allele, internally used for
 parallelization
 }
