@@ -27,8 +27,7 @@ This tool is able to simulate outlying individuals and missing SNPs can be
 specified. For Genome-wide association study (GWAS), disease status can be set 
 in desired level according risk ratio.
 
-The R package ```FILEST``` requires ```KRIS```, ```doParallel```, ```parallel```, 
-and ```rARPACK```
+The R package ```FILEST``` requires ```KRIS``` and ```rARPACK```
 
 Here is the list of functions in the R package ```FILEST```:
 

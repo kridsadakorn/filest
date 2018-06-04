@@ -7,8 +7,7 @@
 #' SNPs can be specified. For Genome-wide association study (GWAS), disease
 #' status can be set in desired level according risk ratio.
 #'
-#' The R package \pkg{FILEST} requires the package \pkg{KRIS}, \pkg{doParallel},
-#' \pkg{foreach}, and \pkg{rARPACK}.
+#' The R package \pkg{FILEST} requires \pkg{KRIS} and \pkg{rARPACK}.
 #'
 #' Here is the list of functions in the R package \pkg{FILEST}:
 #' \itemize{
