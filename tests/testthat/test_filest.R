@@ -9,6 +9,7 @@ test_that("filest function",{
   expect_equal(dir.exists(file.path(res,"example1")), TRUE)
   expect_equal(file.exists(file.path(res,"example1","simSNP_rep1.bed")), TRUE)
 
-  file.remove(file.path(res,"example1"), recursive = TRUE)
+  unlink(file.path(res,"example1"), recursive = TRUE)
   file.remove(file.path(res,"example1.txt"))
+
 })

@@ -48,5 +48,8 @@ information will be exported.
 \examples{
 
 #See the examples from
+\donttest{
 demo.filest()
+}
+
 }

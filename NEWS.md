@@ -13,6 +13,15 @@ output:
 
 
 
+# FILEST 1.0.0
+
+## NOTES
+
+* Shift from 0.3.7 to 1.0.0 to release
+
+## Updates
+
+* Romoved all codes related to doMC and doParallel, there is a problem in Windows.
 
 # FILEST 0.3.7
 

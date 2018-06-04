@@ -5,13 +5,14 @@
 
 ## R CMD check results for OS X 
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 0 notes 
 
 ## R CMD check results for Scientific Linux
 
-0 errors | 0 warnings | 1 notes
+0 errors | 0 warnings | 2 notes
 
-* checking installed package size ... the installed size is 20.1Mb
+* checking CRAN incoming feasibility, Maintainer: Kridsadakorn Chaichoompu <kridsadakorn@biostatgen.org>, New submission
+* checking installed package size, installed size is 12.0Mb
 
 ## R CMD check results for win-builder
 
@@ -20,11 +21,9 @@
 ### NOTES:
 Possibly mis-spelled words in DESCRIPTION:
 
-*  Bioinformatic (2:52)
-*  Fst (6:228)
-*  PLINK (6:303)
-*  bioinformatic (6:61)
-*  nucleotide (6:161)
-*  polymorphism (6:172)
+* Fst (6:243)
+* GWAS (6:370)
+* nucleotide (6:102)
+* polymorphisms (6:113)
   
 In fact, these words do exist in biology and bioinformatic areas.

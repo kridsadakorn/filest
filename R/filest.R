@@ -483,18 +483,22 @@ get.para = function(param){
 #'
 #' @export
 #'
-#' @import doMC
+# @import doParallel
+# @import parallel
+# @import foreach
 #' @import KRIS
-#' @import foreach
 #' @importFrom utils read.table write.table write.csv
 #' @importFrom grDevices dev.off pdf
 #'
 #' @examples
 #'
 #' #See the examples from
+#' \donttest{
 #' demo.filest()
+#' }
+#'
 filest <- function(setting, out, thread = 1){
-  #library(doMC)
+
   #To run this script
   #$ Rscript [sript].r --setting [setting file] --outdir [output directory] --thread [number of thread]
   start.time = Sys.time()
@@ -509,7 +513,9 @@ filest <- function(setting, out, thread = 1){
     no.thread = 1
   }
 
-  registerDoMC(no.thread)
+  #registerDoMC(no.thread)
+  #parallel.clusters=makeCluster(no.thread,type="SOCK")
+  #registerDoParallel(parallel.clusters)
 
   options(scipen=15)
   options(digits=18)
@@ -532,7 +538,8 @@ filest <- function(setting, out, thread = 1){
     out.dir =  file.path(out.dir.prefix,param$name)
     cat(paste0("The simulated files will be saved in this directory: ",out.dir,"\n"))
     dir.create(out.dir, showWarnings = TRUE, mode = "0755")
-    foreach (idx.rep = 1:param$replicate) %dopar% {
+    #foreach (idx.rep = 1:param$replicate) %dopar% {
+    for (idx.rep in 1:param$replicate) {
 
       out.filename.prefix = paste0(file.path(out.dir,"simSNP_rep"),idx.rep)
       cat(paste0("Creating data file setting #",set.no," - rep #",idx.rep,"\n"))

@@ -15,6 +15,8 @@ This function generates the setting file and demonstrate how to use \code{\link{
 \examples{
 
 #To run this function, simply call demo.filest()
+\donttest{
 demo.filest()
+}
 
 }
