@@ -131,3 +131,112 @@ test_that("Test create.outlier",{
   expect_equal(res,E)
 
 })
+
+
+
+context("Test cal.prob.categorical.data")
+
+test_that("Test cal.prob.categorical.data",{
+
+  P <- 0.5
+  M <- 2
+  res <- cal.prob.categorical.data(P,M)
+  expect_length(res,2)
+
+  M <- 4
+  res <- cal.prob.categorical.data(P,M)
+  expect_length(res,4)
+
+  M <- 6
+  res <- cal.prob.categorical.data(P,M)
+  expect_length(res,6)
+
+})
+
+
+
+context("Test do.sample.categorical.data")
+
+test_that("Test do.sample.categorical.data",{
+
+  P <- c(0.5,0.5,0.5,0.5,0.5)
+  M <- 2
+  I <- 1
+  res <- cal.prob.categorical.data(P,M)
+  expect_length(res,10)
+
+  P <- c(0.5,0.5)
+  M <- 2
+  I <- 1
+  res <- cal.prob.categorical.data(P,M)
+  expect_length(res,4)
+
+})
+
+
+
+context("Test generate.categorical.data")
+
+test_that("Test generate.categorical.data",{
+
+  P <- 2
+  Fst <- 0.1
+  N <- 5
+  res <- generate.categorical.data(P,Fst,N)
+  expect_length(res,10)
+
+})
+
+
+
+context("Test generate.snp")
+
+test_that("Test generate.snp",{
+
+  P <- 2
+  Fst <- 0.1
+  N <- 5
+  R <- 1.0
+  res <- generate.snp(P,Fst,N,R)
+  expect_length(res,10)
+
+})
+
+
+
+context("Test generate.label")
+
+test_that("Test generate.label",{
+
+  P <- c(5,5)
+  O <- c(0,1)
+  res <- generate.label(P,O)
+  expect_length(res,10)
+
+})
+
+
+
+context("Test rbind.matrix")
+
+test_that("Test rbind.matrix",{
+
+  X <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
+  Y <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
+  res <- rbind.matrix(X,Y)
+  expect_length(res,32)
+
+})
+
+
+
+context("Test cbind.matrix")
+
+test_that("Test cbind.matrix",{
+
+  X <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
+  Y <- matrix(c(1,2,0,1,2,2,1,2,0,0,1,2,1,2,2,2),ncol=4)
+  res <- cbind.matrix(X,Y)
+  expect_length(res,32)
+
+})
