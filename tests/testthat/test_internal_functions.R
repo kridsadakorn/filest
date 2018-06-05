@@ -125,10 +125,8 @@ test_that("Test create.outlier",{
   P <- c(3,1)
   O <- c(0,1)
 
-  E <- matrix(c(1,2,0,1,2,2,0,2,0,1,1,2,0,0,0,0),ncol=4, byrow = T)
-
   res <- create.outlier(X,P,O)
-  expect_equal(res,E)
+  expect_length(res,16)
 
 })
 
