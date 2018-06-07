@@ -451,7 +451,7 @@ get.para = function(param){
 #' @param out An absolute path for output files
 #' @param thread A number to specify a maximum thread to be run in parallel
 #'
-#' @return NULL
+#' @return NULL if done successfully. NA if output directory can't be created.
 #'
 #' @details This function takes the specific input file containing the settings
 #' for simulations. It allows multiple settings for several simulation within
@@ -492,9 +492,32 @@ get.para = function(param){
 #'
 #' @examples
 #'
-#' #See the examples from
+#' #Check and run the demo from demo.filest()
 #' \donttest{
 #' demo.filest()
+#'
+#' #Here is the code for demo.filest()
+#' txt <- "--setting=example1\n"
+#' txt <- paste0(txt, "--population=500,500\n")
+#' txt <- paste0(txt, "--fst=0.005,0.005\n")
+#' txt <- paste0(txt, "--case=0,0\n")
+#' txt <- paste0(txt, "--outlier=0,0\n")
+#' txt <- paste0(txt, "--marker=3000\n")
+#' txt <- paste0(txt, "--replicate=1\n")
+#' txt <- paste0(txt, "--riskratio=1\n")
+#' txt <- paste0(txt, "--no.case.snp=0\n")
+#' txt <- paste0(txt, "--pc=TRUE\n")
+#' txt <- paste0(txt, "--missing=0\n")
+#' txt <- paste0(txt, "--fulloutput=TRUE\n")
+#'
+#' outdir <- file.path(tempdir())
+#'
+#' settingfile <- file.path(outdir, "example1.txt")
+#' fo <- file(settingfile,"w")
+#' for (i in txt){ write(i,fo)}
+#' close(fo)
+#'
+#' filest(setting = settingfile, out = outdir, thread = 1)
 #' }
 #'
 filest <- function(setting, out, thread = 1){
@@ -508,6 +531,19 @@ filest <- function(setting, out, thread = 1){
   no.thread = as.integer(thread)
   out.dir.prefix = out
   fname.input = setting
+
+  if (!dir.exists(out.dir.prefix)){
+    cat(paste0("Output directory doesn't exist: ",out.dir.prefix,"\nTrying to create ...\n"))
+    if (!dir.create(out.dir.prefix)){
+      cat(paste0("Couldn't create an output directory: ",out.dir.prefix,"\nPlease change the value of 'out' to another location.\n"))
+      return(NA)
+    }
+  }
+
+  if (!file.exists(fname.input)){
+    cat(paste0("The simulation setting file doesn't exist: ",fname.input,"\nPlease check the value of 'setting'.\n"))
+    return(NA)
+  }
 
   if (length(no.thread)==0){
     no.thread = 1

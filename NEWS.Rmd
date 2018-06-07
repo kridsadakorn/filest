@@ -1,7 +1,7 @@
 ---
 title: "NEWS"
 author: "Kridsadakorn Chaichoompu"
-date: "04/06/2018"
+date: "07/06/2018"
 output:
   html_document:
     keep_md: yes
@@ -14,6 +14,15 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# FILEST 1.0.2
+
+## Updates
+
+* Added references in the DESCRIPTION file
+* Added single quotes for Software's names in the DESCRRIPTION file
+* Added checking for output directory and input file
+
 
 # FILEST 1.0.1
 
