@@ -18,8 +18,11 @@ The R package \pkg{FILEST} requires \pkg{KRIS} and \pkg{rARPACK}.
 
 Here is the list of functions in the R package \pkg{FILEST}:
 \itemize{
-\item \code{\link{filest}}
+\item \code{\link{cbind_bigmatrix}}
+\item \code{\link{create.template.setting}}
 \item \code{\link{demo.filest}}
+\item \code{\link{filest}}
+\item \code{\link{rbind_bigmatrix}}
 }
 }
 \seealso{

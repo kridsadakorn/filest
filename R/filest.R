@@ -1,41 +1,41 @@
 
 
-#' (Internal function) Calculate the first margin for random numbers, internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#' @param fst A number to specify Fst
-#'
-#' @return The first margin for random numbers
+# (Internal function) Calculate the first margin for random numbers, internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+# @param fst A number to specify Fst
+#
+# @return The first margin for random numbers
 
 cal.margin1 = function(prob,fst){
   ret = prob*(1-fst)/fst
   return(ret)
 }
 
-#' (Internal function) Calculate the second margin for random numbers, internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#' @param fst A number to specify Fst
-#'
-#' @return The second margin for random numbers
+# (Internal function) Calculate the second margin for random numbers, internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+# @param fst A number to specify Fst
+#
+# @return The second margin for random numbers
 
 cal.margin2 = function(prob,fst){
   ret = (1-prob)*(1-fst)/fst
   return(ret)
 }
 
-#' (Internal function) Get random number based on beta distribution, internally used for
-#' parallelization
-#'
-#' @param mar1 A number to specify the first margin for random function of beta
-#' distribution.
-#' @param mar2 A number to specify the second margin for random function of beta
-#' distribution.
-#'
-#' @return A random number based on beta distribution
-#'
+# (Internal function) Get random number based on beta distribution, internally used for
+# parallelization
+#
+# @param mar1 A number to specify the first margin for random function of beta
+# distribution.
+# @param mar2 A number to specify the second margin for random function of beta
+# distribution.
+#
+# @return A random number based on beta distribution
+#
 #' @importFrom stats rbeta
 
 get.random.beta = function(mar1,mar2){
@@ -43,66 +43,66 @@ get.random.beta = function(mar1,mar2){
   return(ret)
 }
 
-#' (Internal function) Calculate probability for wild-type allele, internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#'
-#' @return A probability of wild-type allele
+# (Internal function) Calculate probability for wild-type allele, internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+#
+# @return A probability of wild-type allele
 
 cal.prob.AA = function(prob){
   ret = (1-prob)^2
   return(ret)
 }
 
-#' (Internal function) Calculate probability for heterozygous allele, internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#' @param riskratio A number to specify risk ratio for cases
-#'
-#' @return A probability of heterozygous allele
+# (Internal function) Calculate probability for heterozygous allele, internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+# @param riskratio A number to specify risk ratio for cases
+#
+# @return A probability of heterozygous allele
 
 cal.prob.AB = function(prob,riskratio=1.0){
   ret = 2*prob*(1-prob)*riskratio
   return(ret)
 }
 
-#' (Internal function) Calculate probability for mutant-type allele, internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#' @param riskratio A number to specify risk ratio for cases
-#'
-#' @return A probability of mutant-type allele
+# (Internal function) Calculate probability for mutant-type allele, internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+# @param riskratio A number to specify risk ratio for cases
+#
+# @return A probability of mutant-type allele
 
 cal.prob.BB = function(prob,riskratio=1.0){
   ret = prob^2 * riskratio^2
   return(ret)
 }
 
-#' (Internal function) Sample SNP according to given probabilities, internally used for
-#' parallelization
-#'
-#' @param p.AA A number to specify probability of wild-type allele
-#' @param p.AB A number to specify probability of heterozygous allele
-#' @param p.BB A number to specify probability of mutant-type allele
-#' @param no.ind A number to specify the amount of individuals to be generated
-#'
-#' @return A simulated SNP in additive coding
+# (Internal function) Sample SNP according to given probabilities, internally used for
+# parallelization
+#
+# @param p.AA A number to specify probability of wild-type allele
+# @param p.AB A number to specify probability of heterozygous allele
+# @param p.BB A number to specify probability of mutant-type allele
+# @param no.ind A number to specify the amount of individuals to be generated
+#
+# @return A simulated SNP in additive coding
 
 do.sample.SNP = function(p.AA,p.AB,p.BB,no.ind){
   ret = sample(c(0,1,2),no.ind, prob=c(p.AA,p.AB,p.BB), replace=TRUE)
   return(ret)
 }
 
-#' (Internal function) Create categorical data, internally used for
-#' parallelization
-#'
-#' @param marker A string to specify a marker
-#' @param name A string to specify a name of marker
-#'
-#' @return A categorical value
+# (Internal function) Create categorical data, internally used for
+# parallelization
+#
+# @param marker A string to specify a marker
+# @param name A string to specify a name of marker
+#
+# @return A categorical value
 
 do.create.cate = function(marker,name){
   ret = paste(name,marker,sep="_")
@@ -110,15 +110,15 @@ do.create.cate = function(marker,name){
 }
 
 
-#' (Internal function) Create outliers,internally used for
-#' parallelization
-#'
-#' @param X An input matrix containing SNPs in additive coding
-#' @param population A vector of labels for all individuals
-#' @param outlier A number to specify the amount of outliers to be generated
+# (Internal function) Create outliers,internally used for
+# parallelization
+#
+# @param X An input matrix containing SNPs in additive coding
+# @param population A vector of labels for all individuals
+# @param outlier A number to specify the amount of outliers to be generated
 #' @import rARPACK
 #' @importFrom stats runif
-#' @return The modified matrix with outliers
+# @return The modified matrix with outliers
 
 create.outlier = function(X,population,outlier){
   SVD=svd(X)
@@ -153,14 +153,14 @@ create.outlier = function(X,population,outlier){
   return(A)
 }
 
-#' (Internal function) Calculate probabilities for categorical data, internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#' @param max.category A number to specify the maximum number of categorical groups
-#'
-#' @return Probability for categorical data
-#'
+# (Internal function) Calculate probabilities for categorical data, internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+# @param max.category A number to specify the maximum number of categorical groups
+#
+# @return Probability for categorical data
+#
 #' @importFrom stats runif
 
 cal.prob.categorical.data = function(prob,max.category){
@@ -175,29 +175,29 @@ cal.prob.categorical.data = function(prob,max.category){
   return(pset)
 }
 
-#' (Internal function) Sample categorical data,internally used for
-#' parallelization
-#'
-#' @param prob A number to specify probability
-#' @param max.category A number to specify the maximum number of categorical groups
-#' @param no.ind A number to specify the amount of individuals to be generated
-#'
-#' @return A simulated data in categorical mode
+# (Internal function) Sample categorical data,internally used for
+# parallelization
+#
+# @param prob A number to specify probability
+# @param max.category A number to specify the maximum number of categorical groups
+# @param no.ind A number to specify the amount of individuals to be generated
+#
+# @return A simulated data in categorical mode
 
 do.sample.categorical.data = function(prob,max.category,no.ind){
   ret = sample(1:max.category,no.ind, prob=prob, replace=TRUE)
   return(ret)
 }
 
-#' (Internal function) Generate categorical data, internally used for
-#' parallelization
-#'
-#' @param pop A number to specify probability
-#' @param fst A number to specify Fst
-#' @param no.marker A number to specify the amount of markers to be generated
-#'
-#' @return A marrix of categorical data
-#'
+# (Internal function) Generate categorical data, internally used for
+# parallelization
+#
+# @param pop A number to specify probability
+# @param fst A number to specify Fst
+# @param no.marker A number to specify the amount of markers to be generated
+#
+# @return A marrix of categorical data
+#
 #' @importFrom stats runif
 
 generate.categorical.data =function(pop,fst,no.marker){
@@ -219,16 +219,16 @@ generate.categorical.data =function(pop,fst,no.marker){
   return(ret)
 }
 
-#' (Internal function) Generate SNPs, internally used for
-#' parallelization
-#'
-#' @param pop A number to specify the amount of populations
-#' @param fst A number to specify Fst (representing genetic distance)
-#' @param no.snp A number to specify the amount of SNPs
-#' @param riskratio A number to specify risk ratio for cases
-#'
-#' @return Simulated SNPs
-#'
+# (Internal function) Generate SNPs, internally used for
+# parallelization
+#
+# @param pop A number to specify the amount of populations
+# @param fst A number to specify Fst (representing genetic distance)
+# @param no.snp A number to specify the amount of SNPs
+# @param riskratio A number to specify risk ratio for cases
+#
+# @return Simulated SNPs
+#
 #' @importFrom stats runif
 
 generate.snp =function(pop,fst,no.snp,riskratio=1.0){
@@ -259,13 +259,13 @@ generate.snp =function(pop,fst,no.snp,riskratio=1.0){
 }
 
 
-#' (Internal function) Generate labels, internally used for
-#' parallelization
-#'
-#' @param pop A number to specify the amount of populations
-#' @param outlier A number to specify the amount of outliers
-#'
-#' @return A vector of population labels
+# (Internal function) Generate labels, internally used for
+# parallelization
+#
+# @param pop A number to specify the amount of populations
+# @param outlier A number to specify the amount of outliers
+#
+# @return A vector of population labels
 
 generate.label = function(pop,outlier){
   ret = NULL
@@ -368,11 +368,11 @@ cbind_bigmatrix <- function(a,b){
   }
 }
 
-#' (Internal function) Get all parameters
-#'
-#' @param param A string of parameters
-#'
-#' @return A list of parameters
+# (Internal function) Get all parameters
+#
+# @param param A string of parameters
+#
+# @return A list of parameters
 
 get.para = function(param){
   name=NA
@@ -932,5 +932,66 @@ demo.filest <- function(){
   cat(paste0("Generating the simulated data  to  ... ",outdir,"\n"))
   filest(setting = settingfile, out = outdir, thread = 1)
 
- return(outdir)
+  return(outdir)
+}
+
+#' Create a template for a setting file of function filest
+#'
+#' @param out.file An absolute path to a new setting file
+#' @param no.setting A number of simulated settings
+#'
+#' @return An output directory if suggessfully created. Null if a setting file
+#' can't be created.
+#' @export
+#'
+#' @examples
+#'
+#' #Create 2 simulated settings
+#'
+#' output <- file.path(tempdir(),"example_setting.txt")
+#' res <- create.template.setting(out.file = output, no.setting = 2)
+#' print(res)
+#'
+create.template.setting <- function(out.file, no.setting = 1){
+
+  outfile = out.file
+  if (file.exists(outfile)){
+    f.name = tools::file_path_sans_ext(outfile)
+    f.ext = tools::file_ext(outfile)
+    co = 1
+    f.new = paste0(f.name,co,'.',f.ext)
+    while (file.exists(f.new)){
+      co = co + 1
+      f.new = paste0(f.name,co,'.',f.ext)
+    }
+    outfile = f.new
+    cat(paste0("The given file exists\nThe setting file will be saved as ... ",outfile,"\n"))
+  }else{
+    cat(paste0("The setting file will be saved as ... ",outfile,"\n"))
+  }
+
+  fo = file(outfile,"w")
+  no.set = as.integer(no.setting)
+  if (no.set <= 0){
+    no.set = 1
+  }
+  for (i in 1:no.set){
+    txt = paste0("#Setting ",i," starts here\n--setting=example",i,"\n")
+    txt = paste0(txt,"--population=500,500,500\n")
+    txt = paste0(txt,"--fst=0.005,0.005,0.005\n")
+    txt = paste0(txt,"--case=0,0,0\n")
+    txt = paste0(txt,"--outlier=0,0,0\n")
+    txt = paste0(txt,"--marker=3000\n")
+    txt = paste0(txt,"--replicate=1\n")
+    txt = paste0(txt,"--riskratio=1\n")
+    txt = paste0(txt,"--no.case.snp=0\n")
+    txt = paste0(txt,"--pc=TRUE\n")
+    txt = paste0(txt,"--missing=0\n")
+    txt = paste0(txt,"--fulloutput=TRUE\n")
+
+    write(txt,fo)
+  }
+  close(fo)
+
+  return(outfile)
 }

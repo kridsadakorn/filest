@@ -11,8 +11,11 @@
 #'
 #' Here is the list of functions in the R package \pkg{FILEST}:
 #' \itemize{
-#' \item \code{\link{filest}}
+#' \item \code{\link{cbind_bigmatrix}}
+#' \item \code{\link{create.template.setting}}
 #' \item \code{\link{demo.filest}}
+#' \item \code{\link{filest}}
+#' \item \code{\link{rbind_bigmatrix}}
 #' }
 #'
 #' @keywords internal

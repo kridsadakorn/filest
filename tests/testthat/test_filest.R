@@ -1,6 +1,6 @@
-context("filest function")
+context("Test filest")
 
-test_that("filest function",{
+test_that("filest",{
 
   res <- demo.filest()
 
@@ -11,5 +11,19 @@ test_that("filest function",{
 
   unlink(file.path(res,"example1"), recursive = TRUE)
   file.remove(file.path(res,"example1.txt"))
+
+})
+
+context("Test create.template.setting")
+
+test_that("create.template.setting",{
+
+  output <- file.path(tempdir(),"example_setting.txt")
+  res <- create.template.setting(out.file = output, no.setting = 2)
+
+  expect_type(res, "character")
+  expect_equal(file.exists(res), TRUE)
+
+  file.remove(res)
 
 })

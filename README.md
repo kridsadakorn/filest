@@ -30,6 +30,7 @@ The R package ```FILEST``` requires ```KRIS``` and ```rARPACK```
 Here is the list of functions in the R package ```FILEST```:
 
 * ```cbind_bigmatrix```
+* ```create.template.setting```
 * ```demo.filest```
 * ```filest```
 * ```rbind_bigmatrix```

@@ -13,6 +13,20 @@ output:
 
 
 
+# FILEST 1.1.0
+
+## News
+
+* Added function create.setting.file
+
+
+# FILEST 1.0.3
+
+## Updates
+
+* Dropped off all RD files for internal functions
+
+
 # FILEST 1.0.2
 
 ## Updates
