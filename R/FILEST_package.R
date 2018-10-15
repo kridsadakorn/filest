@@ -20,6 +20,7 @@
 #'
 #' @keywords internal
 #' @import rARPACK
+#' @import KRIS
 "_PACKAGE"
 #> [1] "_PACKAGE"
 
