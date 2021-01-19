@@ -12,5 +12,5 @@ RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Imports: KRIS (>= 1.1.1),rARPACK,grDevices,stats,utils
 Suggests: testthat
-BugReports: https://gitlab.com/kris.ccp/filest/issues
+BugReports: https://gitlab.com/kris.ccp/filest/-/issues
 URL: https://gitlab.com/kris.ccp/filest
