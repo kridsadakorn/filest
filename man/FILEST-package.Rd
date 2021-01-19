@@ -29,7 +29,7 @@ Here is the list of functions in the R package \pkg{FILEST}:
 Useful links:
 \itemize{
   \item \url{https://gitlab.com/kris.ccp/filest}
-  \item Report bugs at \url{https://gitlab.com/kris.ccp/filest/issues}
+  \item Report bugs at \url{https://gitlab.com/kris.ccp/filest/-/issues}
 }
 
 }
