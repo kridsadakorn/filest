@@ -1,17 +1,3 @@
----
-title: "README"
-author: "Kridsadakorn Chaichoompu"
-date: "19/01/2021"
-output:
-  html_document:
-    keep_md: yes
-    toc: yes
-  pdf_document: 
-    number_sections: yes
-    toc: yes
----
-
-
 
 # R Package FILEST
 

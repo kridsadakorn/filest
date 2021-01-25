@@ -9,7 +9,7 @@ README.html
 NEWS.Rmd
 NEWS.pdf
 NEWS.html
-TODO
+TODO.md
 .travis.yml
 ^\.travis\.yml$
 .gitlab-ci.yml
