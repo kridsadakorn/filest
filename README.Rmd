@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# FILEST <img src="man/figures/filest_logo.png" align="right" />
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+```FILEST``` (Fine-Level Structure Simulator) is a population 
+genetic simulator. The simulator is able to generate synthetic datasets for 
+single-nucleotide polymorphisms (SNP) for multiple populations. The genetic 
+distances among populations can be set according to the Fixation Index (Fst). 
+This tool is able to simulate outlying individuals and missing SNPs can be 
+specified. For Genome-wide association study (GWAS), disease status can be set 
+in desired level according risk ratio.
+
+## Installation
+
+You can install the released version of FILEST from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("FILEST")
+```
+Alternatively, you can install the dev version of FILEST from [Gitlab](https://gitlab.com/chaichoompu/filest) with
+``` r
+install.packages("remotes")
+remotes::install_gitlab("chaichoompu/filest", dependencies = TRUE)
+```
+## Document
+
+You can see the reference manual from: [https://chaichoompu.gitlab.io/filest_doc/index.html](https://chaichoompu.gitlab.io/filest_doc/index.html)
+
+
+## Example
+
+This best way to understand the package is the run the demo function and edit the parameters in the setting file:
+
+```{r demo}
+library(FILEST)
+
+output_dir <- demo.filest()
+```
+
+The demo function creates the setting file at a temp directory as ```example1.txt```, and you can use as a template to edit:
+
+```{r setting}
+print(file.path(output_dir,"example1.txt"))
+```
+
+The demo function create the simulated files at a temp directory as `well.```example1```.
+
+```{r simulation}
+dir(file.path(output_dir,"example1"))
+```
+
+
+## About
+
+* Prof. Kristel Van Steen, visit  <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img width="40px" src="man/figures/bio3_logo.png" align="center" /></a><br />
+* Kridsadakorn Chaichoompu, visit <a href="http://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img width="110px" src="man/figures/biostatgen_logo.png" align="center" /></a><br />
