@@ -1,7 +1,7 @@
 Package: FILEST
 Type: Package
 Title: Fine-Level Structure Simulator
-Version: 1.1.2
+Version: 1.1.3
 Authors@R: c(person(given = "Kridsadakorn", family = "Chaichoompu", email = "kridsadakorn@biostatgen.org", role = c("aut", "cre")),person(given = "Kristel", family = 'Van Steen', role = "aut"),person(given = "Fentaw", family = "Abegaz", role = "aut"))
 Description: A population genetic simulator, which is able to generate synthetic datasets for single-nucleotide polymorphisms (SNP) for multiple populations. The genetic distances among populations can be set according to the Fixation Index (Fst) as explained in Balding and Nichols (1995) <doi:10.1007/BF01441146>. This tool is able to simulate outlying individuals and missing SNPs can be specified. For Genome-wide association study (GWAS), disease status can be set in desired level according risk ratio.
 Depends: R (>= 3.2.4)
@@ -12,5 +12,5 @@ RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Imports: KRIS (>= 1.1.1),rARPACK,grDevices,stats,utils
 Suggests: testthat
-BugReports: https://gitlab.com/kris.ccp/filest/-/issues
-URL: https://gitlab.com/kris.ccp/filest
+BugReports: https://gitlab.com/chaichoompu/filest/-/issues
+URL: https://gitlab.com/chaichoompu/filest
