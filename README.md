@@ -30,7 +30,36 @@ Install the released version of ```FILEST``` from CRAN:
 install.packages("FILEST")
 ```
 
-## For developemenpers: problem sovling in checking the package as CRAN
+## Document
+
+Please check the reference manual here: [https://chaichoompu.gitlab.io/filest_doc/index.html](https://chaichoompu.gitlab.io/filest_doc/index.html)
+
+## Citation
+
+Please check how to cite the package
+```{r}
+citation("FILEST")
+```
+or as below:
+```
+To cite FILEST in publications use:
+
+  Kridsadakorn Chaichoompu, Fentaw Abegaz, and Kristel Van Steen (2018). FILEST: Fine-Level Structure Simulator. R package
+  version 1.1.2. URL: https://CRAN.R-project.org/package=FILEST
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {FILEST: Fine-Level Structure Simulator},
+    author = {Kridsadakorn Chaichoompu and Fentaw Abegaz and Kristel {Van Steen}},
+    year = {2018},
+    note = {R package version 1.1.2},
+    url = {https://CRAN.R-project.org/package=FILEST},
+  }
+```
+## For developers
+
+You may face these problems, some notes here might be useful. 
 
 ### Error of Roxygen2 in building RD files
 
