@@ -101,7 +101,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://gitlab.com/chaichoompu/filest/">
+  <a href="https://github.com/kridsadakorn/filest/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -120,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Simulate data for multiple populations</h1>
-    <small class="dont-index">Source: <a href='https://gitlab.com/chaichoompu/filest/blob/master/R/filest.R'><code>R/filest.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/kridsadakorn/filest/blob/master/R/filest.R'><code>R/filest.R</code></a></small>
     <div class="hidden name"><code>filest.Rd</code></div>
     </div>
 
@@ -184,25 +184,25 @@ information will be exported.</p></li>
     <pre class="examples"><div class='input'>
 <span class='co'>#Check and run the demo from demo.filest()</span>
 <span class='fu'><a href='demo.filest.html'>demo.filest</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1.txt
-#&gt; Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX
-#&gt; Start [S0] at 2021-02-04 02:09:50
-#&gt; Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1.txt
-#&gt; The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1' already exists</span></div><div class='output co'>#&gt; Creating data file setting #1 - rep #1
-#&gt; Done - 0.0552589893341064453 secs
+</div><div class='output co'>#&gt; Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1.txt
+#&gt; Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs
+#&gt; Start [S0] at 2021-02-04 03:08:02
+#&gt; Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1.txt
+#&gt; The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1' already exists</span></div><div class='output co'>#&gt; Creating data file setting #1 - rep #1
+#&gt; Done - 0.0542879104614257812 secs
 #&gt; Writing data files setting #1 - rep #1
-#&gt; Done - 0.258147954940795898 secs
+#&gt; Done - 0.255742788314819336 secs
 #&gt; Creating status file setting #1 - rep #1
-#&gt; Done - 0.259432077407836914 secs
+#&gt; Done - 0.257117986679077148 secs
 #&gt; Estimating Fst setting #1 - rep #1
-#&gt; Done - 0.278290033340454102 secs
+#&gt; Done - 0.275522947311401367 secs
 #&gt; Creating maker information setting #1 - rep #1
 #&gt; Overwrite the existed bed file
 #&gt; Overwrite the existed bim file
 #&gt; Overwrite the existed fam file
-#&gt; Done - 0.51912999153137207 secs
+#&gt; Done - 0.507668018341064453 secs
 #&gt; Generating PC scores #1 - rep #1</div><div class='output co'>#&gt; Generating EigenVector  #1 - rep #1
-#&gt; Done - 1.08977293968200684 secs</div><div class='output co'>#&gt; [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX"</div><div class='input'>
+#&gt; Done - 1.06495380401611328 secs</div><div class='output co'>#&gt; [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs"</div><div class='input'>
 <span class='co'>#Here is the code for demo.filest()</span>
 <span class='va'>txt</span> <span class='op'>&lt;-</span> <span class='st'>"--setting=example1\n"</span>
 <span class='va'>txt</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>txt</span>, <span class='st'>"--population=100,100\n"</span><span class='op'>)</span>
@@ -225,23 +225,23 @@ information will be exported.</p></li>
 <span class='fu'><a href='https://rdrr.io/r/base/connections.html'>close</a></span><span class='op'>(</span><span class='va'>fo</span><span class='op'>)</span>
 
 <span class='fu'>filest</span><span class='op'>(</span>setting <span class='op'>=</span> <span class='va'>settingfile</span>, out <span class='op'>=</span> <span class='va'>outdir</span>, thread <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Start [S0] at 2021-02-04 02:09:51
-#&gt; Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1.txt
-#&gt; The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpuF3HdX/example1' already exists</span></div><div class='output co'>#&gt; Creating data file setting #1 - rep #1
-#&gt; Done - 0.0543670654296875 secs
+</div><div class='output co'>#&gt; Start [S0] at 2021-02-04 03:08:04
+#&gt; Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1.txt
+#&gt; The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmphzhYIs/example1' already exists</span></div><div class='output co'>#&gt; Creating data file setting #1 - rep #1
+#&gt; Done - 0.0476059913635253906 secs
 #&gt; Writing data files setting #1 - rep #1
-#&gt; Done - 0.253533124923706055 secs
+#&gt; Done - 0.25265192985534668 secs
 #&gt; Creating status file setting #1 - rep #1
-#&gt; Done - 0.254821062088012695 secs
+#&gt; Done - 0.254265069961547852 secs
 #&gt; Estimating Fst setting #1 - rep #1
-#&gt; Done - 0.273468017578125 secs
+#&gt; Done - 0.273791074752807617 secs
 #&gt; Creating maker information setting #1 - rep #1
 #&gt; Overwrite the existed bed file
 #&gt; Overwrite the existed bim file
 #&gt; Overwrite the existed fam file
-#&gt; Done - 0.512037038803100586 secs
+#&gt; Done - 0.506335973739624023 secs
 #&gt; Generating PC scores #1 - rep #1</div><div class='output co'>#&gt; Generating EigenVector  #1 - rep #1
-#&gt; Done - 1.07433199882507324 secs</div><div class='input'>
+#&gt; Done - 1.05788111686706543 secs</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

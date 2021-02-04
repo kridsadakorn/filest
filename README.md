@@ -36,17 +36,17 @@ install.packages("FILEST")
 ```
 
 Alternatively, you can install the dev version of FILEST from
-[Gitlab](https://gitlab.com/chaichoompu/filest) with
+[Github](https://github.com/kridsadakorn/filest) with
 
 ``` r
 install.packages("remotes")
-remotes::install_gitlab("chaichoompu/filest", dependencies = TRUE)
+remotes::install_github("kridsadakorn/filest", dependencies = TRUE)
 ```
 
 ## Document
 
 You can see the reference manual from:
-<https://chaichoompu.gitlab.io/filest_doc/index.html>
+<http://www.biostatgen.org/filest/>
 
 ## Example
 
@@ -57,24 +57,24 @@ edit the parameters in the setting file:
 library(FILEST)
 
 output_dir <- demo.filest()
-#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpxNZYJR/example1.txt
-#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpxNZYJR
-#> Start [S0] at 2021-02-04 02:53:11
-#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpxNZYJR/example1.txt
-#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpxNZYJR/example1
+#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1.txt
+#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun
+#> Start [S0] at 2021-02-04 03:06:48
+#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1.txt
+#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1
 #> Creating data file setting #1 - rep #1
-#> Done - 0.0868330001831054688 secs
+#> Done - 0.0918028354644775391 secs
 #> Writing data files setting #1 - rep #1
-#> Done - 0.291753053665161133 secs
+#> Done - 0.292100906372070312 secs
 #> Creating status file setting #1 - rep #1
-#> Done - 0.293049097061157227 secs
+#> Done - 0.293356895446777344 secs
 #> Estimating Fst setting #1 - rep #1
-#> Done - 0.317595005035400391 secs
+#> Done - 0.316763877868652344 secs
 #> Creating maker information setting #1 - rep #1
-#> Done - 0.553812026977539062 secs
+#> Done - 0.555354833602905273 secs
 #> Generating PC scores #1 - rep #1
 #> Generating EigenVector  #1 - rep #1
-#> Done - 1.16871404647827148 secs
+#> Done - 1.15917801856994629 secs
 ```
 
 The demo function creates the setting file at a temp directory as
@@ -82,7 +82,7 @@ The demo function creates the setting file at a temp directory as
 
 ``` r
 print(file.path(output_dir,"example1.txt"))
-#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpxNZYJR/example1.txt"
+#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1.txt"
 ```
 
 The demo function create the simulated files at a temp directory as

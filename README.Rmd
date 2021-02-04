@@ -40,14 +40,14 @@ You can install the released version of FILEST from [CRAN](https://CRAN.R-projec
 ``` r
 install.packages("FILEST")
 ```
-Alternatively, you can install the dev version of FILEST from [Gitlab](https://gitlab.com/chaichoompu/filest) with
+Alternatively, you can install the dev version of FILEST from [Github](https://github.com/kridsadakorn/filest) with
 ``` r
 install.packages("remotes")
-remotes::install_gitlab("chaichoompu/filest", dependencies = TRUE)
+remotes::install_github("kridsadakorn/filest", dependencies = TRUE)
 ```
 ## Document
 
-You can see the reference manual from: [https://chaichoompu.gitlab.io/filest_doc/index.html](https://chaichoompu.gitlab.io/filest_doc/index.html)
+You can see the reference manual from: [http://www.biostatgen.org/filest/](http://www.biostatgen.org/filest/)
 
 
 ## Example
