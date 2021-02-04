@@ -6,6 +6,13 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/kridsadakorn/filest/workflows/R-CMD-check/badge.svg)](https://github.com/kridsadakorn/filest/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/FILEST)](https://CRAN.R-project.org/package=FILEST)
+[![codecov](https://codecov.io/gh/kridsadakorn/filest/branch/master/graph/badge.svg?token=41WJVZOP49)](https://codecov.io/gh/kridsadakorn/filest)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
 `FILEST` (Fine-Level Structure Simulator) is a population genetic
@@ -47,24 +54,24 @@ edit the parameters in the setting file:
 library(FILEST)
 
 output_dir <- demo.filest()
-#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp6G89Tu/example1.txt
-#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp6G89Tu
-#> Start [S0] at 2021-02-04 01:38:37
-#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp6G89Tu/example1.txt
-#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp6G89Tu/example1
+#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp68d4pn/example1.txt
+#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp68d4pn
+#> Start [S0] at 2021-02-04 02:08:53
+#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp68d4pn/example1.txt
+#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp68d4pn/example1
 #> Creating data file setting #1 - rep #1
-#> Done - 0.0694119930267333984 secs
+#> Done - 0.0858700275421142578 secs
 #> Writing data files setting #1 - rep #1
-#> Done - 0.26636815071105957 secs
+#> Done - 0.33812403678894043 secs
 #> Creating status file setting #1 - rep #1
-#> Done - 0.267667055130004883 secs
+#> Done - 0.339600801467895508 secs
 #> Estimating Fst setting #1 - rep #1
-#> Done - 0.294039011001586914 secs
+#> Done - 0.366129875183105469 secs
 #> Creating maker information setting #1 - rep #1
-#> Done - 0.516689062118530273 secs
+#> Done - 0.609417915344238281 secs
 #> Generating PC scores #1 - rep #1
 #> Generating EigenVector  #1 - rep #1
-#> Done - 1.19348001480102539 secs
+#> Done - 1.21240401268005371 secs
 ```
 
 The demo function creates the setting file at a temp directory as
@@ -72,7 +79,7 @@ The demo function creates the setting file at a temp directory as
 
 ``` r
 print(file.path(output_dir,"example1.txt"))
-#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp6G89Tu/example1.txt"
+#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp68d4pn/example1.txt"
 ```
 
 The demo function create the simulated files at a temp directory as
