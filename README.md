@@ -46,7 +46,7 @@ remotes::install_github("kridsadakorn/filest", dependencies = TRUE)
 ## Document
 
 You can see the reference manual from:
-<http://www.biostatgen.org/filest/>
+<https://www.biostatgen.org/filest/>
 
 ## Example
 
@@ -57,24 +57,24 @@ edit the parameters in the setting file:
 library(FILEST)
 
 output_dir <- demo.filest()
-#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1.txt
-#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun
-#> Start [S0] at 2021-02-04 03:06:48
-#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1.txt
-#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1
+#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt
+#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6
+#> Start [S0] at 2021-02-04 03:13:27
+#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt
+#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1
 #> Creating data file setting #1 - rep #1
-#> Done - 0.0918028354644775391 secs
+#> Done - 0.0865130424499511719 secs
 #> Writing data files setting #1 - rep #1
-#> Done - 0.292100906372070312 secs
+#> Done - 0.293856143951416016 secs
 #> Creating status file setting #1 - rep #1
-#> Done - 0.293356895446777344 secs
+#> Done - 0.295050144195556641 secs
 #> Estimating Fst setting #1 - rep #1
-#> Done - 0.316763877868652344 secs
+#> Done - 0.317656993865966797 secs
 #> Creating maker information setting #1 - rep #1
-#> Done - 0.555354833602905273 secs
+#> Done - 0.559202194213867188 secs
 #> Generating PC scores #1 - rep #1
 #> Generating EigenVector  #1 - rep #1
-#> Done - 1.15917801856994629 secs
+#> Done - 1.19890999794006348 secs
 ```
 
 The demo function creates the setting file at a temp directory as
@@ -82,7 +82,7 @@ The demo function creates the setting file at a temp directory as
 
 ``` r
 print(file.path(output_dir,"example1.txt"))
-#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//RtmpyjwUun/example1.txt"
+#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt"
 ```
 
 The demo function create the simulated files at a temp directory as
@@ -109,4 +109,4 @@ dir(file.path(output_dir,"example1"))
   - Prof. Kristel Van Steen, visit
     <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img width="40px" src="man/figures/bio3_logo.png" align="center" /></a><br />
   - Kridsadakorn Chaichoompu, visit
-    <a href="http://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img width="110px" src="man/figures/biostatgen_logo.png" align="center" /></a><br />
+    <a href="https://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img width="110px" src="man/figures/biostatgen_logo.png" align="center" /></a><br />
