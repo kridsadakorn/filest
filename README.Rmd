@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/kridsadakorn/filest/branch/master/graph/badge.svg?token=41WJVZOP49)](https://codecov.io/gh/kridsadakorn/filest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Travis build status](https://travis-ci.com/kridsadakorn/filest.svg?branch=master)](https://travis-ci.com/kridsadakorn/filest)
 <!-- badges: end -->
 
 ```FILEST``` (Fine-Level Structure Simulator) is a population 

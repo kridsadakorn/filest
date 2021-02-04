@@ -28,8 +28,8 @@ Here is the list of functions in the R package \pkg{FILEST}:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://gitlab.com/chaichoompu/filest}
-  \item Report bugs at \url{https://gitlab.com/chaichoompu/filest/-/issues}
+  \item \url{https://github.com/kridsadakorn/filest}
+  \item Report bugs at \url{https://github.com/kridsadakorn/filest/issues}
 }
 
 }
