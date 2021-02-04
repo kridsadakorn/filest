@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # FILEST <img src="man/figures/filest_logo.png" align="right" />
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/kridsadakorn/filest/workflows/R-CMD-check/badge.svg)](https://github.com/kridsadakorn/filest/actions)
 <!-- badges: end -->
 
 ```FILEST``` (Fine-Level Structure Simulator) is a population 
