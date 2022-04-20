@@ -55,18 +55,18 @@ information will be exported.
 demo.filest()
 
 #Here is the code for demo.filest()
-txt <- "--setting=example1\\n"
-txt <- paste0(txt, "--population=500,500\\n")
-txt <- paste0(txt, "--fst=0.005,0.005\\n")
-txt <- paste0(txt, "--case=0,0\\n")
-txt <- paste0(txt, "--outlier=0,0\\n")
-txt <- paste0(txt, "--marker=3000\\n")
-txt <- paste0(txt, "--replicate=1\\n")
-txt <- paste0(txt, "--riskratio=1\\n")
-txt <- paste0(txt, "--no.case.snp=0\\n")
-txt <- paste0(txt, "--pc=TRUE\\n")
-txt <- paste0(txt, "--missing=0\\n")
-txt <- paste0(txt, "--fulloutput=TRUE\\n")
+txt <- "--setting=example1\n"
+txt <- paste0(txt, "--population=500,500\n")
+txt <- paste0(txt, "--fst=0.005,0.005\n")
+txt <- paste0(txt, "--case=0,0\n")
+txt <- paste0(txt, "--outlier=0,0\n")
+txt <- paste0(txt, "--marker=3000\n")
+txt <- paste0(txt, "--replicate=1\n")
+txt <- paste0(txt, "--riskratio=1\n")
+txt <- paste0(txt, "--no.case.snp=0\n")
+txt <- paste0(txt, "--pc=TRUE\n")
+txt <- paste0(txt, "--missing=0\n")
+txt <- paste0(txt, "--fulloutput=TRUE\n")
 
 outdir <- file.path(tempdir())
 

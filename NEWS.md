@@ -1,19 +1,7 @@
 # FILEST 1.2.0
 
----
-title: "NEWS"
-author: "Kridsadakorn Chaichoompu"
-date: "07/06/2018"
-output:
-  pdf_document:
-    number_sections: yes
-    toc: yes
-  html_document:
-    keep_md: yes
-    toc: yes
-  word_document:
-    toc: yes
----
+* Add the new way to random the value for outliers because the previous cannot 
+use that the values will be different from the old values
 
 # FILEST 1.1.1
 

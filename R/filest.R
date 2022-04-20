@@ -137,13 +137,21 @@ create.outlier = function(X,population,outlier){
     }
   }
 
+  # 20.04.2022 to improve
+  # create a new random function to random the values which are different from the old one
+
   no.outlier = length(idx)
-  rn = runif(no.outlier,min = -0.1 ,max=0.1)
-  umod[idx,1] = rn
-  rn = runif(no.outlier,min = -0.2 ,max=0.2)
-  umod[idx,2] = rn
-  rn = runif(no.outlier,min = -0.4 ,max=0.4)
-  umod[idx,3] = rn
+  rn = runif(no.outlier,min = 0.15 ,max=0.4)
+  rn_direction = sample(c(-1,1), no.outlier, replace = TRUE)
+  rn = rn * rn_direction
+  rn = runif(no.outlier,min = 0.15 ,max=0.4)
+  rn_direction = sample(c(-1,1), no.outlier, replace = TRUE)
+  rn = rn * rn_direction
+  umod[idx,2] = umod[idx,2] + rn
+  rn = runif(no.outlier,min = 0.15 ,max=0.4)
+  rn_direction = sample(c(-1,1), no.outlier, replace = TRUE)
+  rn = rn * rn_direction
+  umod[idx,3] = umod[idx,3] + rn
 
   A = umod %*% diag(SVD$d) %*% t(SVD$v)
   A = round(A)
@@ -821,6 +829,9 @@ filest <- function(setting, out, thread = 1){
       filename = paste0(out.filename.prefix)
       write.bed(object,file=filename)
 
+      filename = paste0(out.filename.prefix,".RData")
+      save(object,iid,status,label,file=filename, compress = "bzip2")
+
       cat(paste0("Done - ",format(Sys.time()-start.time),"\n"))
 
       if (param$pc == "TRUE"){
@@ -866,24 +877,24 @@ filest <- function(setting, out, thread = 1){
         filename = paste0(out.filename.prefix,".RData")
         if (!anyNA(param$no.case.snp)){
           if (param$no.case.snp > 0){
-            save(file=filename,PC,PC.projected,raw.data,case.snp.set,label,object)
+            save(file=filename,PC,PC.projected,raw.data,case.snp.set,label,object, compress = "bzip2")
           }else{
-            save(file=filename,PC,PC.projected,raw.data,label,object)
+            save(file=filename,PC,PC.projected,raw.data,label,object, compress = "bzip2")
           }
         }else{
-          save(file=filename,PC,PC.projected,raw.data,label,object)
+          save(file=filename,PC,PC.projected,raw.data,label,object, compress = "bzip2")
         }
       }else{
         #Save R object
         filename = paste0(out.filename.prefix,".RData")
         if (!anyNA(param$no.case.snp)){
           if (param$no.case.snp > 0){
-            save(file=filename,raw.data,case.snp.set,label,object)
+            save(file=filename,raw.data,case.snp.set,label,object, compress = "bzip2")
           }else{
-            save(file=filename,raw.data,label,object)
+            save(file=filename,raw.data,label,object, compress = "bzip2")
           }
         }else{
-          save(file=filename,raw.data,label,object)
+          save(file=filename,raw.data,label,object, compress = "bzip2")
         }
       }
       cat(paste0("Done - ",format(Sys.time()-start.time),"\n"))
