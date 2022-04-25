@@ -9,8 +9,13 @@ README.html
 NEWS.Rmd
 NEWS.pdf
 NEWS.html
-TODO
+TODO.md
 .travis.yml
 ^\.travis\.yml$
 .gitlab-ci.yml
 packages_*
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^README\.Rmd$
+^\.github$

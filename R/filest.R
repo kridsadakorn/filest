@@ -501,16 +501,15 @@ get.para = function(param){
 #' @examples
 #'
 #' #Check and run the demo from demo.filest()
-#' \donttest{
 #' demo.filest()
 #'
 #' #Here is the code for demo.filest()
 #' txt <- "--setting=example1\n"
-#' txt <- paste0(txt, "--population=500,500\n")
-#' txt <- paste0(txt, "--fst=0.005,0.005\n")
+#' txt <- paste0(txt, "--population=100,100\n")
+#' txt <- paste0(txt, "--fst=0.01,0.01\n")
 #' txt <- paste0(txt, "--case=0,0\n")
 #' txt <- paste0(txt, "--outlier=0,0\n")
-#' txt <- paste0(txt, "--marker=3000\n")
+#' txt <- paste0(txt, "--marker=1000\n")
 #' txt <- paste0(txt, "--replicate=1\n")
 #' txt <- paste0(txt, "--riskratio=1\n")
 #' txt <- paste0(txt, "--no.case.snp=0\n")
@@ -526,7 +525,6 @@ get.para = function(param){
 #' close(fo)
 #'
 #' filest(setting = settingfile, out = outdir, thread = 1)
-#' }
 #'
 filest <- function(setting, out, thread = 1){
 
@@ -914,17 +912,15 @@ filest <- function(setting, out, thread = 1){
 #' @examples
 #'
 #' #To run this function, simply call demo.filest()
-#' \donttest{
 #' demo.filest()
-#' }
 #'
 demo.filest <- function(){
   txt = "--setting=example1\n"
-  txt = paste0(txt,"--population=500,500\n")
-  txt = paste0(txt,"--fst=0.005,0.005\n")
+  txt = paste0(txt,"--population=100,100\n")
+  txt = paste0(txt,"--fst=0.01,0.01\n")
   txt = paste0(txt,"--case=0,0\n")
   txt = paste0(txt,"--outlier=0,0\n")
-  txt = paste0(txt,"--marker=3000\n")
+  txt = paste0(txt,"--marker=1000\n")
   txt = paste0(txt,"--replicate=1\n")
   txt = paste0(txt,"--riskratio=1\n")
   txt = paste0(txt,"--no.case.snp=0\n")
@@ -988,11 +984,11 @@ create.template.setting <- function(out.file, no.setting = 1){
   }
   for (i in 1:no.set){
     txt = paste0("#Setting ",i," starts here\n--setting=example",i,"\n")
-    txt = paste0(txt,"--population=500,500,500\n")
-    txt = paste0(txt,"--fst=0.005,0.005,0.005\n")
+    txt = paste0(txt,"--population=100,100,100\n")
+    txt = paste0(txt,"--fst=0.01,0.01,0.01\n")
     txt = paste0(txt,"--case=0,0,0\n")
     txt = paste0(txt,"--outlier=0,0,0\n")
-    txt = paste0(txt,"--marker=3000\n")
+    txt = paste0(txt,"--marker=1000\n")
     txt = paste0(txt,"--replicate=1\n")
     txt = paste0(txt,"--riskratio=1\n")
     txt = paste0(txt,"--no.case.snp=0\n")

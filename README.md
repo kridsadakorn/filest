@@ -1,108 +1,112 @@
----
-title: "README"
-author: "Kridsadakorn Chaichoompu"
-date: "07/06/2018"
-output:
-  html_document:
-    keep_md: yes
-    toc: yes
-  pdf_document: 
-    number_sections: yes
-    toc: yes
----
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# FILEST <img src="man/figures/filest_logo.png" align="right" />
 
-# R Package FILEST
+<!-- badges: start -->
 
-## Summary
+[![R-CMD-check](https://github.com/kridsadakorn/filest/workflows/R-CMD-check/badge.svg)](https://github.com/kridsadakorn/filest/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/FILEST)](https://CRAN.R-project.org/package=FILEST)
+[![codecov](https://codecov.io/gh/kridsadakorn/filest/branch/master/graph/badge.svg?token=41WJVZOP49)](https://codecov.io/gh/kridsadakorn/filest)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Travis build
+status](https://travis-ci.com/kridsadakorn/filest.svg?branch=master)](https://travis-ci.com/kridsadakorn/filest)
+[![DOI](https://zenodo.org/badge/333290990.svg)](https://zenodo.org/badge/latestdoi/333290990)
+<!-- badges: end -->
 
-The R package ```FILEST``` (Fine-Level Structure Simulator) is a population 
-genetic simulator. The simulator is able to generate synthetic datasets for 
-single-nucleotide polymorphisms (SNP) for multiple populations. The genetic 
-distances among populations can be set according to the Fixation Index (Fst). 
-This tool is able to simulate outlying individuals and missing SNPs can be 
-specified. For Genome-wide association study (GWAS), disease status can be set 
-in desired level according risk ratio.
-
-The R package ```FILEST``` requires ```KRIS``` and ```rARPACK```
-
-Here is the list of functions in the R package ```FILEST```:
-
-* ```cbind_bigmatrix```
-* ```create.template.setting```
-* ```demo.filest```
-* ```filest```
-* ```rbind_bigmatrix```
+`FILEST` (Fine-Level Structure Simulator) is a population genetic
+simulator. The simulator is able to generate synthetic datasets for
+single-nucleotide polymorphisms (SNP) for multiple populations. The
+genetic distances among populations can be set according to the Fixation
+Index (Fst). This tool is able to simulate outlying individuals and
+missing SNPs can be specified. For Genome-wide association study (GWAS),
+disease status can be set in desired level according risk ratio.
 
 ## Installation
 
-Install the released version of ```FILEST``` from CRAN:
+You can install the released version of FILEST from
+[CRAN](https://CRAN.R-project.org) with:
 
-
-```r
+``` r
 install.packages("FILEST")
 ```
 
-## For developemenpers: problem sovling in checking the package as CRAN
+Alternatively, you can install the dev version of FILEST from
+[Github](https://github.com/kridsadakorn/filest) with
 
-### Error of Roxygen2 in building RD files
+``` r
+install.packages("remotes")
+remotes::install_github("kridsadakorn/filest", dependencies = TRUE)
+```
 
-The source codes in this package include the Roxgen's syntax. If there is a 
-problem for generating the RD files (facing some errors) using RStudio (_Build > 
-Document_), try to use ```roxygen2::roxygenise()``` instead of _Build > Document_ 
-from the menu. Alternatively, install the package ```devtools```, then enable 
-RStudio to use the functions from ```devtools``` (check _Build > Configure Build 
-Tools... > use devtools package functions if available_) or run 
-```devtools::document()``` in the console.
+## Document
 
-### Error of testthat for unit testing
+You can see the reference manual from:
+<https://www.biostatgen.org/filest/>
 
-When facing error for ```testthat```, try to update the package ```testthat``` and add 
-```Suggests: testthat``` in _DESCRIPTION_ file.
+## Example
 
-### Submit package to CRAN
+This best way to understand the package is the run the demo function and
+edit the parameters in the setting file:
 
-Check the submission using ```R CMD check --as-cran``` and a current version of 
-r-devel, as mandated by the CRAN Repository Policy. (You could do so using the 
-win-builder service at http://win-builder.r-project.org)
+``` r
+library(FILEST)
 
-## Resubmit new version to CRAN
+output_dir <- demo.filest()
+#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt
+#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6
+#> Start [S0] at 2021-02-04 03:13:27
+#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt
+#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1
+#> Creating data file setting #1 - rep #1
+#> Done - 0.0865130424499511719 secs
+#> Writing data files setting #1 - rep #1
+#> Done - 0.293856143951416016 secs
+#> Creating status file setting #1 - rep #1
+#> Done - 0.295050144195556641 secs
+#> Estimating Fst setting #1 - rep #1
+#> Done - 0.317656993865966797 secs
+#> Creating maker information setting #1 - rep #1
+#> Done - 0.559202194213867188 secs
+#> Generating PC scores #1 - rep #1
+#> Generating EigenVector  #1 - rep #1
+#> Done - 1.19890999794006348 secs
+```
 
-Check downstream dependencies with ```devtools::revdep_check()```
+The demo function creates the setting file at a temp directory as
+`example1.txt`, and you can use as a template to edit:
 
-### Error on checking DESCRIPTION meta-information in Linux
+``` r
+print(file.path(output_dir,"example1.txt"))
+#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt"
+```
 
-Edit ~/.profile, ~/.bash_profile or ~/.bashrc, then add
+The demo function create the simulated files at a temp directory as
+\`well.`example1`.
 
-export LANG=en_US.UTF-8
+``` r
+dir(file.path(output_dir,"example1"))
+#>  [1] "simSNP_rep1_data_numMark_rowInd_colVar.txt"
+#>  [2] "simSNP_rep1_data_numMark_rowVar_colInd.txt"
+#>  [3] "simSNP_rep1_eigenvector10.txt"             
+#>  [4] "simSNP_rep1_estimated_Fst.txt"             
+#>  [5] "simSNP_rep1_individuals_with_header.txt"   
+#>  [6] "simSNP_rep1_individuals.txt"               
+#>  [7] "simSNP_rep1_PC.pdf"                        
+#>  [8] "simSNP_rep1_PC10.txt"                      
+#>  [9] "simSNP_rep1.bed"                           
+#> [10] "simSNP_rep1.bim"                           
+#> [11] "simSNP_rep1.fam"                           
+#> [12] "simSNP_rep1.RData"
+```
 
-export LC_ALL=en_US.UTF-8
+## About
 
-## CONTRIBUTOR CODE OF CONDUCT
-
-As contributors and maintainers of this project, we pledge to respect all people 
-who contribute through reporting issues, posting feature requests, updating 
-documentation, submitting pull requests or patches, and other activities.
-
-We are committed to making participation in this project a harassment-free 
-experience for everyone, regardless of level of experience, gender, gender 
-identity and expression, sexual orientation, disability, personal appearance, 
-body size, race, ethnicity, age, or religion.
-
-Examples of unacceptable behavior by participants include the use of sexual 
-language or imagery, derogatory comments or personal attacks, trolling, public 
-or private harassment, insults, or other unprofessional conduct.
-
-Project maintainers have the right and responsibility to remove, edit, or reject 
-comments, commits, code, wiki edits, issues, and other contributions that are 
-not aligned to this Code of Conduct. Project maintainers who do not follow the 
-Code of Conduct may be removed from the project team.
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be 
-reported by opening an issue or contacting one or more of the project 
-maintainers.
-
-This Code of Conduct is adapted from the Contributor Covenant, version 1.0.0, 
-available at https://www.contributor-covenant.org/version/1/0/0/code-of-conduct.html
-
+  - Prof. Kristel Van Steen, visit
+    <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img width="40px" src="man/figures/bio3_logo.png" align="center" /></a><br />
+  - Kridsadakorn Chaichoompu, visit
+    <a href="https://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img width="110px" src="man/figures/biostatgen_logo.png" align="center" /></a><br />

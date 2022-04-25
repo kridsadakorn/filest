@@ -1,18 +1,24 @@
+<<<<<<< HEAD
 # FILEST 1.2.0
 
 * Add the new way to random the value for outliers because the previous cannot 
 use that the values will be different from the old values
+=======
+>>>>>>> ed3ef4a1c3601588026b7866eccd95a9f1a04515
+
+# FILEST 1.1.3
+
+* Update URL of Gitlab in description
+
+# FILEST 1.1.2
+
+* Update the package according to R v4
 
 # FILEST 1.1.1
 
-## Update
-
 * Added the complete libraries in FILEST_package.R
 
-
 # FILEST 1.1.0
-
-## News
 
 * Added function create.setting.file
 
