@@ -1,5 +1,18 @@
 ---
+<<<<<<< HEAD
+title: "README"
+author: "Kridsadakorn Chaichoompu"
+date: "20/04/2022"
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+=======
 output: github_document
+>>>>>>> ed3ef4a1c3601588026b7866eccd95a9f1a04515
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->

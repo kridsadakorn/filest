@@ -137,13 +137,21 @@ create.outlier = function(X,population,outlier){
     }
   }
 
+  # 20.04.2022 to improve
+  # create a new random function to random the values which are different from the old one
+
   no.outlier = length(idx)
-  rn = runif(no.outlier,min = -0.1 ,max=0.1)
-  umod[idx,1] = rn
-  rn = runif(no.outlier,min = -0.2 ,max=0.2)
-  umod[idx,2] = rn
-  rn = runif(no.outlier,min = -0.4 ,max=0.4)
-  umod[idx,3] = rn
+  rn = runif(no.outlier,min = 0.15 ,max=0.4)
+  rn_direction = sample(c(-1,1), no.outlier, replace = TRUE)
+  rn = rn * rn_direction
+  rn = runif(no.outlier,min = 0.15 ,max=0.4)
+  rn_direction = sample(c(-1,1), no.outlier, replace = TRUE)
+  rn = rn * rn_direction
+  umod[idx,2] = umod[idx,2] + rn
+  rn = runif(no.outlier,min = 0.15 ,max=0.4)
+  rn_direction = sample(c(-1,1), no.outlier, replace = TRUE)
+  rn = rn * rn_direction
+  umod[idx,3] = umod[idx,3] + rn
 
   A = umod %*% diag(SVD$d) %*% t(SVD$v)
   A = round(A)
