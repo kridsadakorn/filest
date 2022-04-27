@@ -59,24 +59,24 @@ edit the parameters in the setting file:
 library(FILEST)
 
 output_dir <- demo.filest()
-#> Creating a setting file ... /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1.txt
-#> Generating the simulated data  to  ... /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O
-#> Start [S0] at 2022-04-27 02:09:29
-#> Setting file is : /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1.txt
-#> The simulated files will be saved in this directory: /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1
+#> Creating a setting file ... /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//Rtmpo0wJhk/example1.txt
+#> Generating the simulated data  to  ... /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//Rtmpo0wJhk
+#> Start [S0] at 2022-04-27 02:31:39
+#> Setting file is : /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//Rtmpo0wJhk/example1.txt
+#> The simulated files will be saved in this directory: /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//Rtmpo0wJhk/example1
 #> Creating data file setting #1 - rep #1
-#> Done - 0.0337290763854980469 secs
+#> Done - 0.0299999713897705078 secs
 #> Writing data files setting #1 - rep #1
-#> Done - 0.153094053268432617 secs
+#> Done - 0.149560928344726562 secs
 #> Creating status file setting #1 - rep #1
-#> Done - 0.154020071029663086 secs
+#> Done - 0.15028691291809082 secs
 #> Estimating Fst setting #1 - rep #1
-#> Done - 0.167601108551025391 secs
+#> Done - 0.163115024566650391 secs
 #> Creating maker information setting #1 - rep #1
-#> Done - 0.324625968933105469 secs
+#> Done - 0.320117950439453125 secs
 #> Generating PC scores #1 - rep #1
 #> Generating EigenVector  #1 - rep #1
-#> Done - 0.682832002639770508 secs
+#> Done - 0.678966999053955078 secs
 ```
 
 The demo function creates the setting file at a temp directory as
@@ -84,7 +84,7 @@ The demo function creates the setting file at a temp directory as
 
 ``` r
 print(file.path(output_dir,"example1.txt"))
-#> [1] "/var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1.txt"
+#> [1] "/var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//Rtmpo0wJhk/example1.txt"
 ```
 
 The demo function create the simulated files at a temp directory as
