@@ -55,19 +55,11 @@ demo.filest()
 
 #Here is the code for demo.filest()
 txt <- "--setting=example1\n"
-<<<<<<< HEAD
-txt <- paste0(txt, "--population=500,500\n")
-txt <- paste0(txt, "--fst=0.005,0.005\n")
-txt <- paste0(txt, "--case=0,0\n")
-txt <- paste0(txt, "--outlier=0,0\n")
-txt <- paste0(txt, "--marker=3000\n")
-=======
 txt <- paste0(txt, "--population=100,100\n")
 txt <- paste0(txt, "--fst=0.01,0.01\n")
 txt <- paste0(txt, "--case=0,0\n")
 txt <- paste0(txt, "--outlier=0,0\n")
 txt <- paste0(txt, "--marker=1000\n")
->>>>>>> ed3ef4a1c3601588026b7866eccd95a9f1a04515
 txt <- paste0(txt, "--replicate=1\n")
 txt <- paste0(txt, "--riskratio=1\n")
 txt <- paste0(txt, "--no.case.snp=0\n")

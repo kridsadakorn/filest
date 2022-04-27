@@ -1,10 +1,8 @@
-<<<<<<< HEAD
+
 # FILEST 1.2.0
 
 * Add the new way to random the value for outliers because the previous cannot 
 use that the values will be different from the old values
-=======
->>>>>>> ed3ef4a1c3601588026b7866eccd95a9f1a04515
 
 # FILEST 1.1.3
 

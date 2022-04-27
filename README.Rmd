@@ -1,18 +1,5 @@
 ---
-<<<<<<< HEAD
-title: "README"
-author: "Kridsadakorn Chaichoompu"
-date: "20/04/2022"
-output:
-  html_document:
-    keep_md: yes
-    toc: yes
-  pdf_document: 
-    number_sections: yes
-    toc: yes
-=======
 output: github_document
->>>>>>> ed3ef4a1c3601588026b7866eccd95a9f1a04515
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -26,25 +13,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-# FILEST <img src="man/figures/filest_logo.png" align="right" />
+# FILEST <img src="man/figures/filest_logo.png" align="right"/>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/kridsadakorn/filest/workflows/R-CMD-check/badge.svg)](https://github.com/kridsadakorn/filest/actions)
-[![CRAN status](https://www.r-pkg.org/badges/version/FILEST)](https://CRAN.R-project.org/package=FILEST)
-[![codecov](https://codecov.io/gh/kridsadakorn/filest/branch/master/graph/badge.svg?token=41WJVZOP49)](https://codecov.io/gh/kridsadakorn/filest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build status](https://travis-ci.com/kridsadakorn/filest.svg?branch=master)](https://travis-ci.com/kridsadakorn/filest)
-[![DOI](https://zenodo.org/badge/333290990.svg)](https://zenodo.org/badge/latestdoi/333290990)
+
+[![R-CMD-check](https://github.com/kridsadakorn/filest/workflows/R-CMD-check/badge.svg)](https://github.com/kridsadakorn/filest/actions) [![CRAN status](https://www.r-pkg.org/badges/version/FILEST)](https://CRAN.R-project.org/package=FILEST) [![codecov](https://codecov.io/gh/kridsadakorn/filest/branch/master/graph/badge.svg?token=41WJVZOP49)](https://codecov.io/gh/kridsadakorn/filest) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing) [![Travis build status](https://travis-ci.com/kridsadakorn/filest.svg?branch=master)](https://travis-ci.com/kridsadakorn/filest) [![DOI](https://zenodo.org/badge/333290990.svg)](https://zenodo.org/badge/latestdoi/333290990)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest?ref=badge_shield)
 <!-- badges: end -->
 
-```FILEST``` (Fine-Level Structure Simulator) is a population 
-genetic simulator. The simulator is able to generate synthetic datasets for 
-single-nucleotide polymorphisms (SNP) for multiple populations. The genetic 
-distances among populations can be set according to the Fixation Index (Fst). 
-This tool is able to simulate outlying individuals and missing SNPs can be 
-specified. For Genome-wide association study (GWAS), disease status can be set 
-in desired level according risk ratio.
+`FILEST` (Fine-Level Structure Simulator) is a population genetic simulator. The simulator is able to generate synthetic datasets for single-nucleotide polymorphisms (SNP) for multiple populations. The genetic distances among populations can be set according to the Fixation Index (Fst). This tool is able to simulate outlying individuals and missing SNPs can be specified. For Genome-wide association study (GWAS), disease status can be set in desired level according risk ratio.
 
 ## Installation
 
@@ -53,15 +30,17 @@ You can install the released version of FILEST from [CRAN](https://CRAN.R-projec
 ``` r
 install.packages("FILEST")
 ```
+
 Alternatively, you can install the dev version of FILEST from [Github](https://github.com/kridsadakorn/filest) with
+
 ``` r
 install.packages("remotes")
 remotes::install_github("kridsadakorn/filest", dependencies = TRUE)
 ```
+
 ## Document
 
-You can see the reference manual from: [https://www.biostatgen.org/filest/](https://www.biostatgen.org/filest/)
-
+You can see the reference manual from: <https://www.biostatgen.org/filest/>
 
 ## Example
 
@@ -73,20 +52,23 @@ library(FILEST)
 output_dir <- demo.filest()
 ```
 
-The demo function creates the setting file at a temp directory as ```example1.txt```, and you can use as a template to edit:
+The demo function creates the setting file at a temp directory as `example1.txt`, and you can use as a template to edit:
 
 ```{r setting}
 print(file.path(output_dir,"example1.txt"))
 ```
 
-The demo function create the simulated files at a temp directory as `well.```example1```.
+The demo function create the simulated files at a temp directory as \`well.`example1`.
 
 ```{r simulation}
 dir(file.path(output_dir,"example1"))
 ```
 
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest?ref=badge_large)
+
 
 ## About
 
-* Prof. Kristel Van Steen, visit  <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img width="40px" src="man/figures/bio3_logo.png" align="center" /></a><br />
-* Kridsadakorn Chaichoompu, visit <a href="https://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img width="110px" src="man/figures/biostatgen_logo.png" align="center" /></a><br />
+-   Prof. Kristel Van Steen, visit <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img src="man/figures/bio3_logo.png" width="40px" align="center"/></a><br />
+-   Kridsadakorn Chaichoompu, visit <a href="https://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img src="man/figures/biostatgen_logo.png" width="110px" align="center"/></a><br />

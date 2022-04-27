@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# FILEST <img src="man/figures/filest_logo.png" align="right" />
+# FILEST <img src="man/figures/filest_logo.png" align="right"/>
 
 <!-- badges: start -->
 
@@ -16,6 +16,8 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 [![Travis build
 status](https://travis-ci.com/kridsadakorn/filest.svg?branch=master)](https://travis-ci.com/kridsadakorn/filest)
 [![DOI](https://zenodo.org/badge/333290990.svg)](https://zenodo.org/badge/latestdoi/333290990)
+[![FOSSA
+Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest?ref=badge_shield)
 <!-- badges: end -->
 
 `FILEST` (Fine-Level Structure Simulator) is a population genetic
@@ -57,24 +59,24 @@ edit the parameters in the setting file:
 library(FILEST)
 
 output_dir <- demo.filest()
-#> Creating a setting file ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt
-#> Generating the simulated data  to  ... /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6
-#> Start [S0] at 2021-02-04 03:13:27
-#> Setting file is : /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt
-#> The simulated files will be saved in this directory: /var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1
+#> Creating a setting file ... /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1.txt
+#> Generating the simulated data  to  ... /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O
+#> Start [S0] at 2022-04-27 02:09:29
+#> Setting file is : /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1.txt
+#> The simulated files will be saved in this directory: /var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1
 #> Creating data file setting #1 - rep #1
-#> Done - 0.0865130424499511719 secs
+#> Done - 0.0337290763854980469 secs
 #> Writing data files setting #1 - rep #1
-#> Done - 0.293856143951416016 secs
+#> Done - 0.153094053268432617 secs
 #> Creating status file setting #1 - rep #1
-#> Done - 0.295050144195556641 secs
+#> Done - 0.154020071029663086 secs
 #> Estimating Fst setting #1 - rep #1
-#> Done - 0.317656993865966797 secs
+#> Done - 0.167601108551025391 secs
 #> Creating maker information setting #1 - rep #1
-#> Done - 0.559202194213867188 secs
+#> Done - 0.324625968933105469 secs
 #> Generating PC scores #1 - rep #1
 #> Generating EigenVector  #1 - rep #1
-#> Done - 1.19890999794006348 secs
+#> Done - 0.682832002639770508 secs
 ```
 
 The demo function creates the setting file at a temp directory as
@@ -82,7 +84,7 @@ The demo function creates the setting file at a temp directory as
 
 ``` r
 print(file.path(output_dir,"example1.txt"))
-#> [1] "/var/folders/sp/hhmj9xvx53z4g4dktf5f503r0000gp/T//Rtmp2cYXi6/example1.txt"
+#> [1] "/var/folders/k6/3_1zxcc90dgd495vv1432wf40000gn/T//RtmpI06d4O/example1.txt"
 ```
 
 The demo function create the simulated files at a temp directory as
@@ -104,9 +106,14 @@ dir(file.path(output_dir,"example1"))
 #> [12] "simSNP_rep1.RData"
 ```
 
+## License
+
+[![FOSSA
+Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkridsadakorn%2Ffilest?ref=badge_large)
+
 ## About
 
-  - Prof. Kristel Van Steen, visit
-    <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img width="40px" src="man/figures/bio3_logo.png" align="center" /></a><br />
-  - Kridsadakorn Chaichoompu, visit
-    <a href="https://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img width="110px" src="man/figures/biostatgen_logo.png" align="center" /></a><br />
+-   Prof. Kristel Van Steen, visit
+    <a href="http://bio3.giga.ulg.ac.be/" border=0 style="border:0; text-decoration:none; outline:none"><img src="man/figures/bio3_logo.png" width="40px" align="center"/></a><br />
+-   Kridsadakorn Chaichoompu, visit
+    <a href="https://www.biostatgen.org/" border=0 style="border:0; text-decoration:none; outline:none"><img src="man/figures/biostatgen_logo.png" width="110px" align="center"/></a><br />

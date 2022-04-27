@@ -28,18 +28,18 @@ Here is the list of functions in the R package \pkg{FILEST}:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/kridsadakorn/filest}
-  \item Report bugs at \url{https://github.com/kridsadakorn/filest/issues}
+  \item \url{https://gitlab.com/kris.ccp/filest}
+  \item Report bugs at \url{https://gitlab.com/kris.ccp/filest/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Kridsadakorn Chaichoompu \email{kridsadakorn@biostatgen.org} (\href{https://orcid.org/0000-0002-8123-3409}{ORCID})
+\strong{Maintainer}: Kridsadakorn Chaichoompu \email{kridsadakorn@biostatgen.org}
 
 Authors:
 \itemize{
-  \item Kristel Van Steen (\href{https://orcid.org/0000-0001-9868-5033}{ORCID})
-  \item Fentaw Abegaz (\href{https://orcid.org/0000-0002-6294-4360}{ORCID})
+  \item Kristel Van Steen
+  \item Fentaw Abegaz
 }
 
 }
